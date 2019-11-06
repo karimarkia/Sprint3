@@ -1,19 +1,20 @@
 'use strict'
 
-export const utilService = {
-    load,
-    store,
-    makeId
+export default  {
+    loadFromLocalStorage,
+    saveToStorage,
+    makeId,
+    getCurrentTime
 
 }
 
-function load(key) {
+function loadFromLocalStorage(key) {
     const json = localStorage.getItem(key);
     const value = JSON.parse(json)
     return value;
 }
 
-function store(key, value) {
+function saveToStorage(key, value) {
     const json = JSON.stringify(value);
     localStorage.setItem(key, json)
 }
@@ -28,15 +29,24 @@ function makeId(length = 3) {
 }
 
 
+function getCurrentTime() {
+    const date = new Date();
 
-
-
-
-// export function makeId(length=3) {
-//     var txt = '';
-//     var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-//     for(var i=0; i < length; i++){
-//         txt += possible.charAt(Math.floor(Math.random() * possible.length));
-//     }
-//     return txt;
-// }
+    const time = {
+        year: date.getFullYear(),
+        month: date.getMonth(),
+        dateDay: date.getDate(),
+        hour: date.getHours(),
+        min: date.getMinutes(),
+        sec: date.getSeconds(),
+    }
+    const weekDay = date.getDay()
+    const daysOfTheWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+    // time.min = (min < 10 ? "0" : "") + min;
+    for (var i = 0; i <= 6; i++) {
+        if (weekDay === i) {
+            time.weekDay = daysOfTheWeek[i]
+        }
+    }
+    return time;
+}

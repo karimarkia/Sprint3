@@ -15,8 +15,8 @@ var options = {
     template: `
         <div class="main-container">
             <app-header></app-header>
-            <router-view class="body-component"></router-view>
-            <h1>THIS IS THE FOOTER</h1>
+            <router-view></router-view>
+            <!-- <h1>THIS IS THE FOOTER</h1> -->
         </div>
     `,
     // data() {}
@@ -25,4 +25,4 @@ var options = {
     }
 }
 
-new Vue(options);
+new Vue(options);   

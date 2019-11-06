@@ -1,0 +1,26 @@
+@import './helpers.css';
+@import './app-component.css';
+.main-container {
+    border: 2px solid black;
+    padding: 10px;
+}
+
+.nav-container {
+    border: 2px solid lightcoral;
+}
+
+.body-container {
+    border: 5px solid lightblue;
+    padding: 10px;
+    margin: 10px;
+}
+
+.header {
+    border: 2px solid blue;
+    padding: 10px;
+}
+
+.footer {
+    border: 2px solid darkblue;
+    padding: 10px;
+}

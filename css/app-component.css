@@ -1,0 +1,11 @@
+.header-component {
+    border: 2px solid lightpink;
+}
+
+.nav-component {
+    border: 2px solid lightsalmon;
+}
+
+.body-component {
+    border: 2px solid lightcoral;
+}

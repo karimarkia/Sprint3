@@ -16,7 +16,9 @@ var options = {
         <div class="main-container">
             <app-header></app-header>
             <router-view class="body-component"></router-view>
-            <h1>THIS IS THE FOOTER</h1>
+            <div class="footer">
+                THIS IS THE FOOTER
+            </div>
         </div>
     `,
     // data() {}

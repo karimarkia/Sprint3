@@ -1,0 +1,49 @@
+.flex {
+    display: flex;
+}
+
+.flex-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.wrap {
+    flex-wrap: wrap;
+}
+
+.spread {
+    justify-content: space-between;
+}
+
+.centered {
+    justify-content: center;
+    align-items: center;
+}
+
+.end {
+    justify-content: flex-end;
+}
+
+.clean {
+    list-style: none;
+}
+
+.hidden {
+    display: none;
+}
+
+.visible {
+    display: block;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.underlined {
+    text-decoration: underline;
+}
+
+.center {
+    text-align: center;
+}

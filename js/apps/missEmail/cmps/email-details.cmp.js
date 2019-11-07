@@ -5,9 +5,10 @@ import { eventBus } from '../../../services/event-bus-service.js';
 
 export default {
     name: 'emailDetails',
-    props: ['email'],
+    // props: ['email'],
     template: `
             <section class="email-details-container flex-col">  
+            <h1>details</h1>
                 <div class="flex">
                     <div class="email-details flex-col">
                         <h3>{{this.currEmail.from}}</h3>
@@ -28,6 +29,7 @@ export default {
     // </div>
     data() {
         return {
+            email: null,
             currEmail: null,
             nextEmailId: null,
             prevEmailId: null
@@ -35,14 +37,20 @@ export default {
     },
     methods: {
         loadEmail() {
-            this.currEmail = this.email
+            // console.log('started loading the details page')
+            // debugger
+            // this.currEmail = this.email
+            // console.log('the data is: ', this.currEmail)
             let emailId = this.currEmail.id;
-            this.nextEmailId = emailService.getPrevNextEmailId(emailId, 'next');
-            this.prevEmailId = emailService.getPrevNextEmailId(emailId, 'prev');
-            // emailService.getEmailById(emailId)
-            //     .then(email => {
-            //         this.currEmail = email;
-            //     })
+            console.log('the current email ID is:', emailId)
+                // this.nextEmailId = emailService.getPrevNextEmailId(emailId, 'next');
+                // console.log('the next email ID is: ', this.nextEmailId)
+                // this.prevEmailId = emailService.getPrevNextEmailId(emailId, 'prev');
+                // console.log('the prev email ID is: ', this.prevEmailId)
+                // emailService.getEmailById(emailId)
+                //     .then(email => {
+                //         this.currEmail = email;
+                //     })
         },
         deleteEmail(emailId) {
             emailService.deleteEmail(this.currEmail.id)
@@ -75,10 +83,25 @@ export default {
     computed: {},
     components: {},
     created() {
-        this.loadEmail();
+        const emailId = this.$route.params.id;
+        // console.log('got into the emailDetails', emailId)
+        emailService.getEmailById(+emailId)
+            .then(email => {
+                // console.log('the gotten email is: ', email)
+                this.currEmail = email;
+                this.loadEmail();
+            })
+
+        // emailService.getEmailById(id)
+        //     .then(res => {
+        //         this.currEmail = res;
+        //         console.log('the gotten email is: ', res)
+        //         this.loadEmail();
+
+        //     })
     },
     // watch: {
-    //     '$route.params.id' () {
+    //     '' () {
     //         this.loadEmail();
     //     }
     // }

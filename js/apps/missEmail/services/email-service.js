@@ -54,7 +54,13 @@ function getEmails() {
 }
 
 function getEmailById(emailId) {
-    var email = gEmails.find(email => email.id === emailId)
+    // console.log('this is what is being piped into the fxn', typeof emailId)
+
+    var email = gEmails.find(email => {
+            // console.log(email.id)
+            return email.id === emailId
+        })
+        // console.log(email)
     return Promise.resolve(email);
 }
 

@@ -12,7 +12,7 @@ export default {
 }
 
 var gNotes = [{}]
-// var gNextId = 1
+    // var gNextId = 1
 
 // function createNotes() {
 //    var notes = [createNote('first text'),

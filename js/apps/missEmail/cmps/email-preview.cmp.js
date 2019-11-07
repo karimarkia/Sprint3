@@ -20,5 +20,7 @@ export default {
         }
     },
     computed: {},
-    created() {},
+    created() {
+        // console.log('onCreated, the emailPreview is getting this: ', this.email);
+    },
 }

@@ -14,26 +14,26 @@ import emailPreview from '../cmps/email-preview.cmp.js';
 
 export default {
     name: 'missEmailHome',
-    template: `
-        <section class="missEmailHome" >
-            <missEmailHeader></missEmailHeader>
-            <email-filter @filtered="setFilter"></email-filter>
-            <div class="flex">
-                <missEmailNav></missEmailNav>
-                <missEmailList v-if="!isDetailsUp" :emails="emailsToShow" @selected="selectEmail" @switchEmailDetails="getAdjacentEmail(email)"></missEmailList>
-                <emailDetails v-if="isDetailsUp" :email="this.selectedEmail" @closeDetails="closeDetails" @switchEmailDetails="getAdjacentEmail"></emailDetails>
-            </div>
-        </section>
-        `,
     // template: `
     //     <section class="missEmailHome" >
     //         <missEmailHeader></missEmailHeader>
+    //         <email-filter @filtered="setFilter"></email-filter>
     //         <div class="flex">
     //             <missEmailNav></missEmailNav>
-    //             <router-view></router-view>
+    //             <missEmailList v-if="!isDetailsUp" :emails="emailsToShow" @selected="selectEmail" @switchEmailDetails="getAdjacentEmail(email)"></missEmailList>
+    //             <emailDetails v-if="isDetailsUp" :email="this.selectedEmail" @closeDetails="closeDetails" @switchEmailDetails="getAdjacentEmail"></emailDetails>
     //         </div>
     //     </section>
     //     `,
+    template: `
+        <section class="missEmailHome" >
+            <missEmailHeader></missEmailHeader>
+            <div class="flex">
+                <missEmailNav></missEmailNav>
+                <router-view :emails="emailsToShow"></router-view>
+            </div>
+        </section>
+        `,
     data() {
         return {
             emails: [],
@@ -49,10 +49,12 @@ export default {
             this.filterBy = filterBy
         },
         selectEmail(emailId) {
+            console.log('the emailID is: ', emailId)
             let email = emailService.getEmailById(emailId)
                 .then(email => {
                     this.selectedEmail = email;
                     this.isDetailsUp = true;
+                    console.log('the email is: ', this.selectedEmail = email)
                 })
         },
         closeDetails() {

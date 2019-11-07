@@ -7,38 +7,44 @@ export const emailService = {
     getEmailById,
     getEmptyEmail,
     sendEmail,
-    getPrevNextEmailId
-    // deleteEmail
+    getPrevNextEmailId,
+    deleteEmail
 }
 
 const STORAGE_KEY = 'MissEmails'
 
 var gEmails = [{
-        id: 'f4V',
+        id: utilService.makeId(),
         from: 'ohad',
         to: 'ohad',
         subject: 'test',
         body: 'Laboris quis ad nulla veniam commodo tempor ipsum. Enim cupidatat deserunt elit ex do eu duis aliquip exercitation. Pariatur cupidatat ut Lorem pariatur occaecat commodo id ad anim excepteur ea.',
+        isStarred: true,
+        sentByMe: false,
         isRead: false,
-        sentAt: 1551133930594
+        sentAt: new Date().toTimeString().split(' ')[0]
     },
     {
-        id: '5Gb',
+        id: utilService.makeId(),
         from: 'ohad',
         to: 'david',
         subject: 'testing',
         body: 'Laboris quis ad nulla veniam commodo tempor ipsum. Enim cupidatat deserunt elit ex do eu duis aliquip exercitation. Pariatur cupidatat ut Lorem pariatur occaecat commodo id ad anim excepteur ea.',
+        isStarred: true,
+        sentByMe: false,
         isRead: false,
-        sentAt: 1551133930511
+        sentAt: new Date().toTimeString().split(' ')[0]
     },
     {
-        id: '6pW',
+        id: utilService.makeId(),
         from: 'popo',
         to: 'momo',
         subject: 'nice!',
         body: 'Laboris quis ad nulla veniam commodo tempor ipsum. Enim cupidatat deserunt elit ex do eu duis aliquip exercitation. Pariatur cupidatat ut Lorem pariatur occaecat commodo id ad anim excepteur ea.',
+        isStarred: false,
+        sentByMe: false,
         isRead: false,
-        sentAt: 1305133930594
+        sentAt: new Date().toTimeString().split(' ')[0]
     },
 ]
 
@@ -65,10 +71,12 @@ function getEmailById(emailId) {
 function getEmptyEmail() {
     let emptyEmail = {
         id: utilService.makeId(),
-        from: 'Ms. User',
+        from: 'Ohad',
         to: '',
         subject: '',
         body: '',
+        isStarred: false,
+        sentByMe: true,
         isRead: false,
         sentAt: new Date().toTimeString().split(' ')[0]
     };
@@ -84,7 +92,11 @@ function sendEmail(email) {
 }
 
 function deleteEmail(emailId) {
+    let idx = gEmails.findIndex(email => email.id === emailId);
+    if (idx !== -1) gEmails.splice(idx, 1)
+    utilService.saveToStorage(STORAGE_KEY, gEmails)
     console.log('deleting email: ', emailId);
+    return Promise.resolve();
 }
 
 function getPrevNextEmailId(emailId, direction) {

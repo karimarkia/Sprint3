@@ -53,6 +53,7 @@ export default {
                         type: 'success'
                     }
                     eventBus.$emit('show-msg', msg);
+                    this.$router.push('emailList')
                 })
         },
         closeDetails() {

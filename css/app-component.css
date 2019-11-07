@@ -8,6 +8,7 @@
 
 .body-component {
     border: 2px solid lightcoral;
+    height: 100%;
 }
 
 .emailApp-main {
@@ -16,6 +17,8 @@
 
 .email-side-nav {
     background-color: lightblue;
+    padding: 10px;
+    margin-right: 10px;
 }
 
 .email-list {

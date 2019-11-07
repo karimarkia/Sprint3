@@ -15,7 +15,7 @@ var options = {
     template: `
         <div class="main-container">
             <app-header></app-header>
-            <router-view class="body-component"></router-view>
+            <router-view></router-view>
         </div>
     `,
     // data() {}

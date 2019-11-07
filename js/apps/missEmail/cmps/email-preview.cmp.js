@@ -10,9 +10,8 @@ export default {
             <div class="email-item flex-col">
                 <div class="flex spread">
                 <span class="bold">From: {{email.from}}</span>
-                    <button @click="selectEmail(email.id)">Expand</button>
-                    <router-link :to="emailURL">details</router-link>
-
+                <router-link :to="emailURL"><button>Expand</button></router-link>
+                    
                 </div>    
                 <div class="flex spread">
                     <div>Subject: {{email.subject}}</div>
@@ -21,10 +20,11 @@ export default {
             </div>
             </li>
             `,
+    // <button @click="selectEmail(email.id)">Expand</button>
     methods: {
         selectEmail(emailId) {
             // eventBus.$emit('show-msg', msg);
-            this.$emit('selected', emailId)
+            // this.$emit('selected', emailId)
             this.$router.push('emailDetails/' + emailId)
         }
     },

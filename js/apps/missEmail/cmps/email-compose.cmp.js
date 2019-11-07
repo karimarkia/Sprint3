@@ -8,12 +8,11 @@ export default {
     // props: ['email'],
     template: `
             <section v-if="newEmail" class="email-compose-container">  
-                THIS IS THE EMAIL COMPOSE PAGE
                 <form class="email-compose-container" @submit.prevent="sendEmail">
-                <input ref="to" type="text" placeholder="to" v-model="newEmail.to" />
-                <input ref="subject" type="text" placeholder="subject" v-model="newEmail.subject" />
-                <textarea ref="emailBody" placeholder="what do you have to say?" v-model="newEmail.body"></textarea>
-                <button>Send</button>
+                    <input ref="to" type="text" placeholder="to" v-model="newEmail.to" />
+                    <input ref="subject" type="text" placeholder="subject" v-model="newEmail.subject" />
+                    <textarea ref="emailBody" placeholder="what do you have to say?" v-model="newEmail.body"></textarea>
+                    <button>Send</button>
                 </form>
                 <button @click="discardChanges">Discard</button>
             </section>
@@ -29,17 +28,24 @@ export default {
     methods: {
         discardChanges() {
             console.log('discarding your changes');
+            this.newEmail = null;
+            this.to = null;
+            this.subject = null;
+            this.$router.push('emailList')
 
         },
         sendEmail() {
-            console.log('sending the email');
             emailService.sendEmail(this.newEmail)
                 .then(() => {
-                    console.log('the email has been sent successfully');
+                    const msg = {
+                        txt: `The email has been sent succefully' (${this.newEmail.id})'`,
+                        type: 'success'
+                    }
+                    eventBus.$emit('show-msg', msg);
                     this.newEmail = emailService.getEmptyEmail()
                         .then(email => {
-                            console.log('after successfully sending the email, here is the new empty email: ', email);
                             this.newEmail = email;
+                            this.$router.push('emailList')
                         })
                 })
         },

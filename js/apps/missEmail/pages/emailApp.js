@@ -19,8 +19,10 @@ export default {
         <section class="missEmailApp">
             <div class="flex">
                 <div class="email-side-nav flex-col">
-                    <router-link to="/missEmail/emailCompose">Compose</router-link>
+                    <router-link to="/missEmail/emailCompose"><button>Compose</button></router-link>
                     <router-link to="/missEmail/emailList">Inbox</router-link>
+                    <router-link to="/missEmail/starred">Starred</router-link>
+                    <router-link to="/missEmail/sent">Sent</router-link>
                 </div>
                 <div class="emailApp-main flex-col">
                     <email-filter class="flex" @filtered="setFilter"></email-filter>                
@@ -73,6 +75,15 @@ export default {
 
             // })
         }
+
+        // dogsToShow() {
+        //     if (!this.filterBy) return this.dogs;
+        //     var regex = new RegExp(`${this.filterBy.name}`, 'i');
+        //     return this.dogs.filter(dog => 
+        //         // dog.name.toLowerCase().includes(this.filterBy.name.toLowerCase()) && dog.weight >= this.filterBy.minWeight
+        //         regex.test(dog.name) && dog.weight >= this.filterBy.minWeight
+        //     )
+        // }
     },
     created() {
         emailService.getEmails()

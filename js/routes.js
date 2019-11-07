@@ -7,6 +7,8 @@ import missEmail from './apps/missEmail/pages/emailApp.js';
 import missEmailHeader from './apps/missEmail/cmps/email-header.cmp.js';
 import missEmailNav from './apps/missEmail/cmps/email-nav.cmp.js';
 import emailList from './apps/missEmail/cmps/email-list.cmp.js';
+import starredEmailList from './apps/missEmail/cmps/starred-email-list.cmp.js';
+import sentEmailList from './apps/missEmail/cmps/sent-email-list.cmp.js';
 import emailDetails from './apps/missEmail/cmps/email-details.cmp.js';
 import emailCompose from './apps/missEmail/cmps/email-compose.cmp.js';
 
@@ -24,6 +26,14 @@ const myRoutes = [{
         children: [{
                 path: 'emailList',
                 component: emailList
+            },
+            {
+                path: 'starred',
+                component: starredEmailList
+            },
+            {
+                path: 'sent',
+                component: sentEmailList
             },
             {
                 path: 'emailCompose',

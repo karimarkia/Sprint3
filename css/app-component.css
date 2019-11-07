@@ -7,7 +7,7 @@
 }
 
 .body-component {
-    border: 2px solid lightcoral;
+    /* border: 2px solid lightcoral; */
     height: 100%;
 }
 
@@ -17,8 +17,16 @@
 
 .email-side-nav {
     background-color: lightblue;
-    padding: 10px;
+    margin-top: 10px;
     margin-right: 10px;
+    border-radius: 2px;
+    padding: 10px;
+}
+
+.nav-item {
+    margin: 5px;
+    padding: 5px;
+    background-color: lightgrey;
 }
 
 .email-filter {
@@ -30,6 +38,27 @@
 }
 
 .email-item {
-    background-color: lightgrey;
+    background-color: rgb(253, 219, 127);
+    padding: 5px;
+    border-radius: 2px;
     margin: 2px;
+}
+
+.email-body {
+    background-color: rgb(253, 219, 127);
+    ;
+    margin: 10px;
+    padding: 20px;
+    border-radius: 4px;
+}
+
+.compose-commands {
+    width: 50px;
+    height: 50px;
+}
+
+.btn {
+    border-radius: 4px;
+    border: none;
+    width: 60px;
 }

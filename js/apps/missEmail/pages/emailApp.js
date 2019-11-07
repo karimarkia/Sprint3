@@ -19,10 +19,10 @@ export default {
         <section class="missEmailApp">
             <div class="flex">
                 <div class="email-side-nav flex-col">
-                    <router-link to="/missEmail/emailCompose"><button>Compose</button></router-link>
-                    <router-link to="/missEmail/emailList">Inbox</router-link>
-                    <router-link to="/missEmail/starred">Starred</router-link>
-                    <router-link to="/missEmail/sent">Sent</router-link>
+                    <router-link to="/missEmail/emailCompose"><img class="compose-commands" src="/img/newemail.png" alt="" /></router-link>
+                    <router-link to="/missEmail/emailList" class="nav-item fa">&#xf01c; Inbox</router-link>
+                    <router-link to="/missEmail/starred" class="nav-item fa">&#xf006; Starred</router-link>
+                    <router-link to="/missEmail/sent" class="nav-item fa">&#xf1d8; Sent</router-link>
                 </div>
                 <div class="emailApp-main flex-col">
                     <email-filter class="flex" @filtered="setFilter"></email-filter>                
@@ -44,7 +44,6 @@ export default {
     methods: {
         setFilter(filterBy) {
             console.log('getting a change in the filter', filterBy);
-
             this.filterBy = filterBy
         },
         selectEmail(emailId) {

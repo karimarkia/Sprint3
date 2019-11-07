@@ -4,6 +4,11 @@
     margin: 0;
 }
 
+a {
+    color: black;
+    text-decoration: none;
+}
+
 input,
 textarea {
     width: 100%;
@@ -33,6 +38,13 @@ textarea {
 
 .email-compose-container {
     /* border: 2px solid lightcoral; */
+    padding: 10px;
+}
+
+.email-details-container {
+    background-color: lightyellow;
+    /* background-color: rgb(253, 219, 127); */
+    border-radius: 4px;
     padding: 10px;
 }
 

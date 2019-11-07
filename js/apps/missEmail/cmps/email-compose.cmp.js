@@ -5,16 +5,15 @@ import { eventBus } from '../../../services/event-bus-service.js';
 
 export default {
     name: 'emailCompose',
-    // props: ['email'],
     template: `
-            <section v-if="newEmail" class="email-compose-container">  
+            <section v-if="newEmail" class="email-compose-container flex-col">  
                 <form class="email-compose-container" @submit.prevent="sendEmail">
                     <input ref="inputTo" type="text" placeholder="to" v-model="newEmail.to" />
                     <input ref="inputSubject" type="text" placeholder="subject" v-model="newEmail.subject" />
                     <textarea ref="inputEmailBody" placeholder="what do you have to say?" v-model="newEmail.body"></textarea>
-                    <button>Send</button>
+                    <button class="btn"><img class="compose-commands" src="/img/send.png" alt="" /></button>
                 </form>
-                <button @click="discardChanges">Discard</button>
+                <img class="compose-commands" @click="discardChanges" src="/img/delete.png" alt="" />
             </section>
             `,
     data() {

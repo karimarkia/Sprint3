@@ -58,13 +58,18 @@ function getEmails() {
     return Promise.resolve(emails);
 }
 
-function getEmailById(emailId) {
-    // console.log('gotten this email ID: ', emailId);
-
+function getEmailById(emailId, modifier) {
     var email = gEmails.find(email => {
-            return email.id === emailId
-        })
-        // console.log('the found email is:', email)
+        return email.id === emailId
+    })
+    if (modifier) {
+        email.isRead = true
+        let idx = gEmails.findIndex(res => res.id === emailId);
+        if (idx !== -1) gEmails.splice(idx, 1, email)
+        utilService.saveToStorage(STORAGE_KEY, gEmails)
+        console.log('this e-mail has been read', email.isRead)
+        console.log('the DB has been updated', gEmails[idx].isRead)
+    }
     return Promise.resolve(email);
 }
 

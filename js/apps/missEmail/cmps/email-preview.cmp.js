@@ -6,19 +6,18 @@ export default {
     name: 'email-preview',
     props: ['email'],
     template: `
-            <li v-if="email" class="email clean">
-            <div class="email-item flex-col">
-                <div class="flex spread">
-                <span class="bold">From: {{email.from}}</span>
-                <router-link :to="emailURL"><button>Expand</button></router-link>
-                    
-                </div>    
-                <div class="flex spread">
-                    <div>Subject: {{email.subject}}</div>
-                    <div>{{email.sentAt}}</div>
+            <router-link :to="emailURL"><li v-if="email" class="email clean">
+                <div class="email-item flex-col">
+                    <div class="flex spread">
+                    <span :class="{bold: !email.isRead}">From: {{email.from}}</span>
+                    <button>Details</button>
+                    </div>    
+                    <div class="flex spread">
+                        <div>Subject: {{email.subject}}</div>
+                        <div>{{email.sentAt}}</div>
+                    </div>
                 </div>
-            </div>
-            </li>
+            </li></router-link>
             `,
     // <button @click="selectEmail(email.id)">Expand</button>
     methods: {

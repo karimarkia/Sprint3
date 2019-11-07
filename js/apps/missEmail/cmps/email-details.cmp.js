@@ -9,17 +9,18 @@ export default {
             <section v-if="currEmail" class="email-details-container flex-col">  
                 <div class="flex">
                     <div class="email-details flex-col">
-                        <h3>{{this.currEmail.from}}</h3>
-                        <h3>{{this.currEmail.to}}</h3>
-                        <h1 class="underlined">{{this.currEmail.subject}}</h1>
+                        <h3>From: {{this.currEmail.from}}</h3>
+                        <h3>To: {{this.currEmail.to}}</h3>
+                        <h1>Subject: <span class="underlined">{{this.currEmail.subject}}</span></h1>
                     </div>
                 </div>
                 <div class="email-body">
-                    <span class="bold">Description: </span>{{this.currEmail.body}}
+                    <p>{{this.currEmail.body}}</p>
                 </div>
-                <button @click="deleteEmail(currEmail.id)">Delete</button>
-                <button @click="closeDetails">CLOSE</button>
-                
+                <div class="flex end">
+                    <img class="compose-commands" @click="deleteEmail(currEmail.id)" src="/img/delete.png" alt="" />
+                    <img class="compose-commands" @click="closeDetails" src="/img/back.png" alt="" />
+                </div>
             </section>
             `,
     // <router-link :to="emailList">details</router-link>
@@ -80,7 +81,7 @@ export default {
     created() {
 
         const emailId = this.$route.params.id;
-        emailService.getEmailById(emailId)
+        emailService.getEmailById(emailId, 'isRead')
             .then(email => {
                 this.currEmail = email;
                 this.loadEmail();

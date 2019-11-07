@@ -1,6 +1,6 @@
 'use strict'
 
-import { utilService } from '../../../services/util-service.js'
+import utilService from '../../../services/util-service.js'
 
 export const emailService = {
     getEmails,
@@ -43,13 +43,13 @@ var gEmails = [{
 ]
 
 function getEmails() {
-    var emails = utilService.load(STORAGE_KEY)
+    var emails = utilService.loadFromLocalStorage(STORAGE_KEY)
     if (!emails || emails.length === 0) {
         emails = gEmails;
     }
-    utilService.store(STORAGE_KEY, emails)
+    utilService.saveToStorage(STORAGE_KEY, emails)
     gEmails = emails
-        // console.log('the emailService is returning this result: ', emails)
+    console.log('the emailService is returning this result: ', emails)
     return Promise.resolve(emails);
 }
 

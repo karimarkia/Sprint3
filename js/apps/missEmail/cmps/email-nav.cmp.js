@@ -4,9 +4,8 @@ export default {
     name: 'emails-nav',
     template: `
         <section class="nav-component flex-col">
-            <button>Inbox</button>
-            <button>Starred</button>
-            <button>Sent</button>
+            <router-link to="/missEmail/EmailList">Inbox</router-link>
+            
         </section>
     `,
     data() {

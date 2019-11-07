@@ -13,25 +13,14 @@ import emailPreview from '../cmps/email-preview.cmp.js';
 
 
 export default {
-    name: 'missEmailHome',
-    // template: `
-    //     <section class="missEmailHome" >
-    //         <missEmailHeader></missEmailHeader>
-    //         <email-filter @filtered="setFilter"></email-filter>
-    //         <div class="flex">
-    //             <missEmailNav></missEmailNav>
-    //             <missEmailList v-if="!isDetailsUp" :emails="emailsToShow" @selected="selectEmail" @switchEmailDetails="getAdjacentEmail(email)"></missEmailList>
-    //             <emailDetails v-if="isDetailsUp" :email="this.selectedEmail" @closeDetails="closeDetails" @switchEmailDetails="getAdjacentEmail"></emailDetails>
-    //         </div>
-    //     </section>
-    //     `,
+    name: 'emailApp',
     template: `
         <section class="missEmailHome" >
-            <missEmailHeader></missEmailHeader>
+            <email-filter @filtered="setFilter"></email-filter>
             <div class="flex">
-                <missEmailNav></missEmailNav>
-                <router-view :emails="emailsToShow"></router-view>
-            </div>
+                <router-link to="/missEmail/emailList">Inbox</router-link>
+                <router-view class="emailApp" :emails="emailsToShow"></router-view>
+                </div>
         </section>
         `,
     data() {
@@ -68,7 +57,6 @@ export default {
     },
     computed: {
         emailsToShow() {
-            // console.log('emailsToShow is sending this: ', this.emails)
             return this.emails
                 // if (!this.filterBy) return this.emails;
                 // return this.emails.filter(email => {
@@ -83,7 +71,8 @@ export default {
             .then(emails => {
                 this.emails = emails
             })
-            // this.$router.push('/missEmail/emailList')
+
+        // this.$router.push('/missEmail/emailList')
     },
     components: {
         missEmailHeader,

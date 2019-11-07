@@ -3,13 +3,13 @@
 import { emailService } from '../services/email-service.js';
 
 export default {
-    name: 'emailPreview',
+    name: 'email-preview',
     props: ['email'],
     template: `
-            <li class="email clean">
-                {{this.email.subject}}
-                {{this.email.from}}
-                {{this.email.sentAt}}
+            <li v-if="email" class="email clean">
+                {{email.subject}}
+                {{email.from}}
+                {{email.sentAt}}
                 <button @click="selectEmail(email.id)">Expand</button>
             </li>
             `,
@@ -20,7 +20,4 @@ export default {
         }
     },
     computed: {},
-    created() {
-        // console.log('onCreated, the emailPreview is getting this: ', this.email);
-    },
 }

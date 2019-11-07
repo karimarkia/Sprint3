@@ -3,7 +3,7 @@
 import home from './cmps/home.cmp.js';
 import appHeader from './cmps/app-header.cmp.js';
 
-import missEmail from './apps/missEmail/pages/home.js';
+import missEmail from './apps/missEmail/pages/emailApp.js';
 import missEmailHeader from './apps/missEmail/cmps/email-header.cmp.js';
 import missEmailNav from './apps/missEmail/cmps/email-nav.cmp.js';
 import missEmailList from './apps/missEmail/cmps/email-list.cmp.js';

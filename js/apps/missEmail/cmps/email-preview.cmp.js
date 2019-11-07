@@ -7,17 +7,30 @@ export default {
     props: ['email'],
     template: `
             <li v-if="email" class="email clean">
-                {{email.subject}}
-                {{email.from}}
-                {{email.sentAt}}
-                <button @click="selectEmail(email.id)">Expand</button>
+            <div class="email-item flex-col">
+                <div class="flex spread">
+                <span class="bold">From: {{email.from}}</span>
+                    <button @click="selectEmail(email.id)">Expand</button>
+                    <router-link :to="emailURL">details</router-link>
+
+                </div>    
+                <div class="flex spread">
+                    <div>Subject: {{email.subject}}</div>
+                    <div>{{email.sentAt}}</div>
+                </div>
+            </div>
             </li>
             `,
     methods: {
         selectEmail(emailId) {
             // eventBus.$emit('show-msg', msg);
             this.$emit('selected', emailId)
+            this.$router.push('emailDetails/' + emailId)
         }
     },
-    computed: {},
+    computed: {
+        emailURL() {
+            return 'emailDetails/' + this.email.id
+        }
+    },
 }

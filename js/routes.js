@@ -6,8 +6,9 @@ import appHeader from './cmps/app-header.cmp.js';
 import missEmail from './apps/missEmail/pages/emailApp.js';
 import missEmailHeader from './apps/missEmail/cmps/email-header.cmp.js';
 import missEmailNav from './apps/missEmail/cmps/email-nav.cmp.js';
-import missEmailList from './apps/missEmail/cmps/email-list.cmp.js';
-import missEmailDetails from './apps/missEmail/cmps/email-details.cmp.js';
+import emailList from './apps/missEmail/cmps/email-list.cmp.js';
+import emailDetails from './apps/missEmail/cmps/email-details.cmp.js';
+import emailCompose from './apps/missEmail/cmps/email-compose.cmp.js';
 
 import missKeep from './apps/missKeep/pages/home.js';
 import missBooks from './apps/missBooks/pages/home.js';
@@ -22,11 +23,15 @@ const myRoutes = [{
         component: missEmail,
         children: [{
                 path: 'emailList',
-                component: missEmailList
+                component: emailList
             },
             {
-                path: 'emailDeatils',
-                component: missEmailDetails
+                path: 'emailCompose',
+                component: emailCompose
+            },
+            {
+                path: 'emailDetails/:id',
+                component: emailDetails
             }
         ]
     },

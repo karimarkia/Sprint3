@@ -10,17 +10,23 @@ import emailFilter from '../cmps/email-filter.cmp.js';
 import missEmailList from '../cmps/email-list.cmp.js';
 import emailDetails from '../cmps/email-details.cmp.js';
 import emailPreview from '../cmps/email-preview.cmp.js';
+import emailCompose from '../cmps/email-compose.cmp.js';
 
 
 export default {
     name: 'emailApp',
     template: `
-        <section class="missEmailHome" >
-            <email-filter @filtered="setFilter"></email-filter>
+        <section class="missEmailApp">
             <div class="flex">
-                <router-link to="/missEmail/emailList">Inbox</router-link>
-                <router-view class="emailApp" :emails="emailsToShow"></router-view>
+                <div class="email-side-nav flex-col">
+                    <router-link to="/missEmail/emailCompose">Compose</router-link>
+                    <router-link to="/missEmail/emailList">Inbox</router-link>
                 </div>
+                <div class="emailApp-main flex-col">
+                    <email-filter class="flex" @filtered="setFilter"></email-filter>                
+                    <router-view class="emailApp" :emails="emailsToShow"></router-view>
+                </div>
+            </div>
         </section>
         `,
     data() {
@@ -35,6 +41,8 @@ export default {
     },
     methods: {
         setFilter(filterBy) {
+            console.log('getting a change in the filter', filterBy);
+
             this.filterBy = filterBy
         },
         selectEmail(emailId) {
@@ -81,5 +89,6 @@ export default {
         emailFilter,
         emailDetails,
         emailPreview,
-    }
+        emailCompose
+    },
 }

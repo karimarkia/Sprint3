@@ -6,7 +6,7 @@ export const emailService = {
     getEmails,
     getEmailById,
     getEmptyEmail,
-    // sendEmail,
+    sendEmail,
     getPrevNextEmailId
     // deleteEmail
 }
@@ -14,7 +14,7 @@ export const emailService = {
 const STORAGE_KEY = 'MissEmails'
 
 var gEmails = [{
-        id: 101,
+        id: 'f4V',
         from: 'ohad',
         to: 'ohad',
         subject: 'test',
@@ -23,7 +23,7 @@ var gEmails = [{
         sentAt: 1551133930594
     },
     {
-        id: 102,
+        id: '5Gb',
         from: 'ohad',
         to: 'david',
         subject: 'testing',
@@ -32,7 +32,7 @@ var gEmails = [{
         sentAt: 1551133930511
     },
     {
-        id: 103,
+        id: '6pW',
         from: 'popo',
         to: 'momo',
         subject: 'nice!',
@@ -49,31 +49,38 @@ function getEmails() {
     }
     utilService.saveToStorage(STORAGE_KEY, emails)
     gEmails = emails
-    console.log('the emailService is returning this result: ', emails)
     return Promise.resolve(emails);
 }
 
 function getEmailById(emailId) {
-    // console.log('this is what is being piped into the fxn', typeof emailId)
+    // console.log('gotten this email ID: ', emailId);
 
     var email = gEmails.find(email => {
-            // console.log(email.id)
             return email.id === emailId
         })
-        // console.log(email)
+        // console.log('the found email is:', email)
     return Promise.resolve(email);
 }
 
 function getEmptyEmail() {
-    return {
+    let emptyEmail = {
         id: utilService.makeId(),
-        from: '',
+        from: 'Ms. User',
         to: '',
         subject: '',
         body: '',
         isRead: false,
-        sentAt: null
+        sentAt: new Date().toTimeString().split(' ')[0]
     };
+    return Promise.resolve(emptyEmail);
+}
+
+function sendEmail(email) {
+    console.log('the email that the service is sending is: ', email);
+    gEmails.unshift(email)
+    utilService.saveToStorage(STORAGE_KEY, gEmails)
+    return Promise.resolve();
+
 }
 
 function deleteEmail(emailId) {

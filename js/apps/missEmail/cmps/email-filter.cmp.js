@@ -3,16 +3,14 @@
 export default {
     name: 'emailFilter',
     template: `
-    <section class="email-filter-container">
-        <div class="flex">
-            <input type="text" placeholder="enter text" v-model="filterBy.title" />
-        </div>
+    <section class="flex email-filter-container">
+            <input type="text" placeholder="enter text" v-model="filterBy.subject" />
     </section>
     `,
     data() {
         return {
             filterBy: {
-                title: ''
+                subject: ''
             }
         }
     },

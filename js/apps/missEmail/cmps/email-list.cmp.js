@@ -14,6 +14,7 @@ export default {
         `,
     methods: {
         selectEmail(emailId) {
+
             this.$emit('selected', emailId);
         }
     },
@@ -24,5 +25,5 @@ export default {
         return {
             currEmail: null,
         }
-    },
+    }
 }

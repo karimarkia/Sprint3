@@ -9,3 +9,20 @@
 .body-component {
     border: 2px solid lightcoral;
 }
+
+.emailApp-main {
+    flex-grow: 1;
+}
+
+.email-side-nav {
+    background-color: lightblue;
+}
+
+.email-list {
+    padding: 0px
+}
+
+.email-item {
+    background-color: lightgrey;
+    margin: 2px;
+}

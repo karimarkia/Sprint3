@@ -9,9 +9,9 @@ export default {
     template: `
             <section v-if="newEmail" class="email-compose-container">  
                 <form class="email-compose-container" @submit.prevent="sendEmail">
-                    <input ref="to" type="text" placeholder="to" v-model="newEmail.to" />
-                    <input ref="subject" type="text" placeholder="subject" v-model="newEmail.subject" />
-                    <textarea ref="emailBody" placeholder="what do you have to say?" v-model="newEmail.body"></textarea>
+                    <input ref="inputTo" type="text" placeholder="to" v-model="newEmail.to" />
+                    <input ref="inputSubject" type="text" placeholder="subject" v-model="newEmail.subject" />
+                    <textarea ref="inputEmailBody" placeholder="what do you have to say?" v-model="newEmail.body"></textarea>
                     <button>Send</button>
                 </form>
                 <button @click="discardChanges">Discard</button>
@@ -54,8 +54,12 @@ export default {
     created() {
         emailService.getEmptyEmail()
             .then(email => {
-                console.log('the empty email received from emailService is: ', email);
                 this.newEmail = email;
             })
     }
+    // mounted() {
+    //     console.log(this.$refs);
+    //     const inputTo = this.$refs.inputTo;
+    //     setTimeOut(() => inputTo.focus(), 0);
+    // },
 }

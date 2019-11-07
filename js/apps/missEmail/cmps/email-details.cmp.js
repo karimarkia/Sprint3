@@ -47,6 +47,7 @@ export default {
             // console.log('the prev email ID is: ', this.prevEmailId)
         },
         deleteEmail(emailId) {
+            //we are no longer really deleting the email...
             emailService.deleteEmail(this.currEmail.id)
                 .then(() => {
                     const msg = {

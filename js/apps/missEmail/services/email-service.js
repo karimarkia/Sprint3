@@ -22,6 +22,7 @@ var gEmails = [{
         isStarred: true,
         sentByMe: false,
         isRead: false,
+        isDeleted: false,
         sentAt: new Date().toTimeString().split(' ')[0]
     },
     {
@@ -33,6 +34,7 @@ var gEmails = [{
         isStarred: true,
         sentByMe: false,
         isRead: false,
+        isDeleted: false,
         sentAt: new Date().toTimeString().split(' ')[0]
     },
     {
@@ -44,6 +46,7 @@ var gEmails = [{
         isStarred: false,
         sentByMe: false,
         isRead: false,
+        isDeleted: false,
         sentAt: new Date().toTimeString().split(' ')[0]
     },
 ]
@@ -83,6 +86,7 @@ function getEmptyEmail() {
         isStarred: false,
         sentByMe: true,
         isRead: false,
+        isDeleted: false,
         sentAt: new Date().toTimeString().split(' ')[0]
     };
     return Promise.resolve(emptyEmail);
@@ -97,10 +101,15 @@ function sendEmail(email) {
 }
 
 function deleteEmail(emailId) {
-    let idx = gEmails.findIndex(email => email.id === emailId);
-    if (idx !== -1) gEmails.splice(idx, 1)
-    utilService.saveToStorage(STORAGE_KEY, gEmails)
-    console.log('deleting email: ', emailId);
+    // we are no longer really deleting the item from the gEmails & local storage... 
+    getEmailById(emailId)
+        .then((email) => {
+            email.isDeleted = true;
+            let idx = gEmails.findIndex(res => res.id === emailId);
+            if (idx !== -1) gEmails.splice(idx, 1, email);
+            utilService.saveToStorage(STORAGE_KEY, gEmails);
+            console.log('not really deleting email: ', emailId);
+        })
     return Promise.resolve();
 }
 

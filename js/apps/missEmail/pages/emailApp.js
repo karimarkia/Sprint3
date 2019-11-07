@@ -23,9 +23,10 @@ export default {
                     <router-link to="/missEmail/emailList" class="nav-item fa">&#xf01c; Inbox</router-link>
                     <router-link to="/missEmail/starred" class="nav-item fa">&#xf006; Starred</router-link>
                     <router-link to="/missEmail/sent" class="nav-item fa">&#xf1d8; Sent</router-link>
+                    <router-link to="/missEmail/deleted" class="nav-item fa">&#xf1f8; Deleted</router-link>
                 </div>
                 <div class="emailApp-main flex-col">
-                    <email-filter class="flex" @filtered="setFilter"></email-filter>                
+                    <email-filter class="flex" @filtered="setFilter"></email-filter>
                     <router-view class="emailApp" :emails="emailsToShow"></router-view>
                 </div>
             </div>
@@ -36,7 +37,9 @@ export default {
             emails: [],
             email: null,
             selectedEmailId: null,
-            filterBy: null,
+            filterBy: {
+                subject: ''
+            },
             isDetailsUp: false,
             selectedEmail: null,
         }
@@ -66,31 +69,18 @@ export default {
     },
     computed: {
         emailsToShow() {
-            return this.emails
-                // if (!this.filterBy) return this.emails;
-                // return this.emails.filter(email => {
-                //     console.log('the current email subject is:', email.subject)
-                //     email.subject.includes(this.filterBy.subject)
-
-            // })
+            if (!this.filterBy.subject.length) return this.emails;
+            return this.emails.filter(email =>
+                email.subject.includes(this.filterBy.subject)
+            )
         }
-
-        // dogsToShow() {
-        //     if (!this.filterBy) return this.dogs;
-        //     var regex = new RegExp(`${this.filterBy.name}`, 'i');
-        //     return this.dogs.filter(dog => 
-        //         // dog.name.toLowerCase().includes(this.filterBy.name.toLowerCase()) && dog.weight >= this.filterBy.minWeight
-        //         regex.test(dog.name) && dog.weight >= this.filterBy.minWeight
-        //     )
-        // }
     },
     created() {
         emailService.getEmails()
             .then(emails => {
                 this.emails = emails
             })
-
-        // this.$router.push('/missEmail/emailList')
+            // this.$router.push('/missEmail/emailList')
     },
     components: {
         missEmailHeader,

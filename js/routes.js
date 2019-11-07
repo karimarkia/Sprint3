@@ -9,11 +9,12 @@ import missEmailNav from './apps/missEmail/cmps/email-nav.cmp.js';
 import emailList from './apps/missEmail/cmps/email-list.cmp.js';
 import starredEmailList from './apps/missEmail/cmps/starred-email-list.cmp.js';
 import sentEmailList from './apps/missEmail/cmps/sent-email-list.cmp.js';
+import deletedEmailList from './apps/missEmail/cmps/deleted-email-list.cmp.js';
 import emailDetails from './apps/missEmail/cmps/email-details.cmp.js';
 import emailCompose from './apps/missEmail/cmps/email-compose.cmp.js';
 
 import missKeep from './apps/missKeep/pages/home.js';
-import missBooks from './apps/missBooks/pages/home.js';
+import missBooks from './apps/missBooks/pages/main.js';
 
 
 const myRoutes = [{
@@ -36,6 +37,10 @@ const myRoutes = [{
                 component: sentEmailList
             },
             {
+                path: 'deleted',
+                component: deletedEmailList
+            },
+            {
                 path: 'emailCompose',
                 component: emailCompose
             },
@@ -49,10 +54,10 @@ const myRoutes = [{
     //     path: '/missKeep',
     //     component: missKeep
     // },
-    // {
-    //     path: '/missBooks',
-    //     component: missBooks
-    // },
+    {
+        path: '/missBooks',
+        component: missBooks
+    },
 ]
 
 const myRouter = new VueRouter({ routes: myRoutes })

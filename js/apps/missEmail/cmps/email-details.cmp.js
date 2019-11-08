@@ -80,8 +80,6 @@ export default {
     },
     computed: {
         trashType() {
-            console.log('the current email is deleted: ', this.currEmail.isDeleted);
-
             if (this.currEmail.isDeleted === false) return '/img/delete.png';
             if (this.currEmail.isDeleted === true) return '/img/undelete.png';
         }

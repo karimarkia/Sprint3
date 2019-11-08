@@ -106,7 +106,6 @@ function modifyEmailProperty(emailId, property) {
 
     if (idx !== -1 && property === 'isRead') {
         gEmails[idx].isRead = true;
-        console.log('email with ID: ', emailId, 'isRead state has been changed to TRUE');
     }
     if (idx !== -1 && property === 'isDeleted') {
         if (!gEmails[idx].isDeleted) {
@@ -116,17 +115,14 @@ function modifyEmailProperty(emailId, property) {
             gEmails[idx].isStarred = false // make sure that this email is no longer STARRED
             gEmails[idx].wasSentByMe = gEmails[idx].isSentByMe; // saves the state of "SENTDOM" to another property
             gEmails[idx].isSentByMe = false;
-            console.log('email with ID: ', emailId, 'has been deleted');
         } else if (gEmails[idx].isDeleted) {
             // for properly undeleting
             gEmails[idx].isDeleted = false; //mark this email as UNdeleted
             gEmails[idx].isStarred = gEmails[idx].wasStarred; // restores the state of "STARDOM"
             gEmails[idx].isSentByMe = gEmails[idx].wasSentByMe; // restores the state of "SENTDOM"
-            console.log('email with ID: ', emailId, 'has been UNdeleted');
         }
     }
     utilService.saveToStorage(STORAGE_KEY, gEmails);
-    console.log('email with ID: ', emailId, 'had this property changed: ', property);
     return getEmailById(emailId);
 }
 

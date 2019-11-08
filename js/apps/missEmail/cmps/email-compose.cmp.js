@@ -37,14 +37,16 @@ export default {
             emailService.sendEmail(this.newEmail)
                 .then(() => {
                     const msg = {
-                        txt: `The email has been sent succefully' (${this.newEmail.id})'`,
+                        txt: 'The email has been sent succefully',
                         type: 'success'
                     }
                     eventBus.$emit('show-msg', msg);
+
                     this.newEmail = emailService.getEmptyEmail()
                         .then(email => {
                             this.newEmail = email;
                             this.$router.push('emailList')
+                                // this.$emit('doneComposing');
                         })
                 })
         },

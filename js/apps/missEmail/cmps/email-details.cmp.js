@@ -18,11 +18,12 @@ export default {
                     <p>{{this.currEmail.body}}</p>
                 </div>
                 <div class="flex end">
-                    <img class="compose-commands" @click="deleteEmail(currEmail.id)" src="/img/delete.png" alt="" />
-                    <img class="compose-commands" @click="closeDetails" src="/img/back.png" alt="" />
+                <img class="compose-commands" @click="deleteEmail(currEmail.id)" :src="trashType" alt="" />
+                <img class="compose-commands" @click="closeDetails" src="/img/back.png" alt="" />
                 </div>
             </section>
             `,
+    // <img class="compose-commands" :class="{'delete-btn': !currEmail.isDeleted, 'undelete-btn': currEmail.isDeleted}" @click="deleteEmail(currEmail.id)" src="" alt="" />
     // <router-link :to="emailList">details</router-link>
     // <button @click="closeDetails">CLOSE</button>
     // <div class="pagination flex end">
@@ -77,7 +78,14 @@ export default {
                 })
         }
     },
-    computed: {},
+    computed: {
+        trashType() {
+            console.log('the current email is deleted: ', this.currEmail.isDeleted);
+
+            if (this.currEmail.isDeleted === false) return '/img/delete.png';
+            if (this.currEmail.isDeleted === true) return '/img/undelete.png';
+        }
+    },
     components: {},
     created() {
 

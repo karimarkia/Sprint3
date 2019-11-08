@@ -61,3 +61,13 @@
     border: none;
     width: 60px;
 }
+
+.delete-btn {
+    border: 2px solid red;
+    background-color: pink;
+    /* background-image: url("/img/delete.png"); */
+}
+
+.undelete-btn {
+    border: 2px solid turquoise;
+}

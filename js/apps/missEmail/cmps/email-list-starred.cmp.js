@@ -32,7 +32,5 @@ export default {
                 email.isStarred === true
             )
         }
-    },
-    created() {}
-
+    }
 }

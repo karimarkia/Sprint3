@@ -48,7 +48,7 @@ export default {
         },
         deleteEmail(emailId) {
             //we are no longer really deleting the email...
-            emailService.deleteEmail(this.currEmail.id)
+            emailService.modifyEmailProperty(this.currEmail.id, 'isDeleted')
                 .then(() => {
                     const msg = {
                         txt: `The email has been deleted succefully (${emailId})`,
@@ -82,7 +82,7 @@ export default {
     created() {
 
         const emailId = this.$route.params.id;
-        emailService.getEmailById(emailId, 'isRead')
+        emailService.modifyEmailProperty(emailId, 'isRead')
             .then(email => {
                 this.currEmail = email;
                 this.loadEmail();

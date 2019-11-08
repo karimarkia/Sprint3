@@ -30,8 +30,8 @@ export default {
     computed: {
         emailsToShow() {
             return this.emails.filter(email =>
-                email.sentByMe === true
+                email.isSentByMe === true
             )
         }
-    },
+    }
 }

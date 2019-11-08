@@ -3,7 +3,7 @@
 import emailPreview from './email-preview.cmp.js';
 
 export default {
-    name: 'starred-email-list',
+    name: 'email-list-inbox',
     props: ['emails'],
     template: `
         <section class="body-component">
@@ -24,22 +24,13 @@ export default {
     data() {
         return {
             currEmail: null,
-            starredEmails: null
         }
     },
     computed: {
         emailsToShow() {
             return this.emails.filter(email =>
-                email.isStarred === true
+                email.isDeleted === false
             )
         }
     },
-    created() {
-        // let starredEmails = this.emails.filter(email =>
-        //     email.isStarred === true
-        // )
-        // console.log('these are the starred e-mails: ', starredEmails)
-
-    }
-
 }

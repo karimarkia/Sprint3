@@ -4,12 +4,12 @@ import home from './cmps/home.cmp.js';
 import appHeader from './cmps/app-header.cmp.js';
 
 import missEmail from './apps/missEmail/pages/emailApp.js';
-import missEmailHeader from './apps/missEmail/cmps/email-header.cmp.js';
-import missEmailNav from './apps/missEmail/cmps/email-nav.cmp.js';
-import emailList from './apps/missEmail/cmps/email-list.cmp.js';
-import starredEmailList from './apps/missEmail/cmps/starred-email-list.cmp.js';
-import sentEmailList from './apps/missEmail/cmps/sent-email-list.cmp.js';
-import deletedEmailList from './apps/missEmail/cmps/deleted-email-list.cmp.js';
+// import missEmailHeader from './apps/missEmail/cmps/email-header.cmp.js';
+// import missEmailNav from './apps/missEmail/cmps/email-nav.cmp.js';
+import emailListInbox from './apps/missEmail/cmps/email-list-inbox.cmp.js';
+import emailListstarred from './apps/missEmail/cmps/email-list-starred.cmp.js';
+import emailListsent from './apps/missEmail/cmps/email-list-sent.cmp.js';
+import emailListdeleted from './apps/missEmail/cmps/email-list-deleted.cmp.js';
 import emailDetails from './apps/missEmail/cmps/email-details.cmp.js';
 import emailCompose from './apps/missEmail/cmps/email-compose.cmp.js';
 
@@ -26,19 +26,19 @@ const myRoutes = [{
         component: missEmail,
         children: [{
                 path: 'emailList',
-                component: emailList
+                component: emailListInbox
             },
             {
                 path: 'starred',
-                component: starredEmailList
+                component: emailListstarred
             },
             {
                 path: 'sent',
-                component: sentEmailList
+                component: emailListsent
             },
             {
                 path: 'deleted',
-                component: deletedEmailList
+                component: emailListdeleted
             },
             {
                 path: 'emailCompose',

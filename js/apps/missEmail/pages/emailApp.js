@@ -7,7 +7,7 @@ import '../../../services/event-bus-service.js'
 import missEmailHeader from '../cmps/email-header.cmp.js';
 import missEmailNav from '../cmps/email-nav.cmp.js';
 import emailFilter from '../cmps/email-filter.cmp.js';
-import missEmailList from '../cmps/email-list.cmp.js';
+// import emailListInbox from '../cmps/email-list-inbox.cmp.js';
 import emailDetails from '../cmps/email-details.cmp.js';
 import emailPreview from '../cmps/email-preview.cmp.js';
 import emailCompose from '../cmps/email-compose.cmp.js';
@@ -38,7 +38,7 @@ export default {
             email: null,
             selectedEmailId: null,
             filterBy: {
-                subject: ''
+                string: ''
             },
             isDetailsUp: false,
             selectedEmail: null,
@@ -69,10 +69,13 @@ export default {
     },
     computed: {
         emailsToShow() {
-            if (!this.filterBy.subject.length) return this.emails;
-            return this.emails.filter(email =>
-                email.subject.includes(this.filterBy.subject)
-            )
+            if (!this.filterBy.string.length) return this.emails;
+            return this.emails.filter(email => {
+                let searchStr = this.filterBy.string.toLowerCase()
+                return email.subject.toLowerCase().includes(searchStr) ||
+                    email.to.toLowerCase().includes(searchStr) ||
+                    email.from.toLowerCase().includes(searchStr)
+            })
         }
     },
     created() {
@@ -85,7 +88,7 @@ export default {
     components: {
         missEmailHeader,
         missEmailNav,
-        missEmailList,
+        // emailListInbox,
         emailFilter,
         emailDetails,
         emailPreview,

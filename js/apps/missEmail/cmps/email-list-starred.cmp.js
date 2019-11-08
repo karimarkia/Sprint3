@@ -3,7 +3,7 @@
 import emailPreview from './email-preview.cmp.js';
 
 export default {
-    name: 'deleted-email-list',
+    name: 'email-list-starred',
     props: ['emails'],
     template: `
         <section class="body-component">
@@ -14,6 +14,7 @@ export default {
         `,
     methods: {
         selectEmail(emailId) {
+
             this.$emit('selected', emailId);
         }
     },
@@ -23,14 +24,15 @@ export default {
     data() {
         return {
             currEmail: null,
-            starredEmails: null
         }
     },
     computed: {
         emailsToShow() {
             return this.emails.filter(email =>
-                email.isDeleted === true
+                email.isStarred === true
             )
         }
     },
+    created() {}
+
 }

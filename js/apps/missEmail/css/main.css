@@ -45,8 +45,6 @@ textarea {
 }
 
 .body-container {
-    /* border: 5px solid lightblue; */
-    /* padding: 10px; */
     margin: 5px;
 }
 
@@ -95,5 +93,8 @@ textarea {
     }
     .email-details-container {
         margin-bottom: 10px;
+    }
+    progress {
+        width: 80px;
     }
 }

@@ -13,10 +13,9 @@ var options = {
     name: 'AppSus',
     el: '.app-sus',
     template: `
-        <div class="main-container">
+        <div class="flex-col spread">
             <app-header></app-header>
             <router-view></router-view>
-            <!-- <h1>THIS IS THE FOOTER</h1> -->
         </div>
     `,
     // data() {}
@@ -25,4 +24,4 @@ var options = {
     }
 }
 
-new Vue(options);   
+new Vue(options);

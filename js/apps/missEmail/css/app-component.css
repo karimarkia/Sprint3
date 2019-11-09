@@ -1,0 +1,154 @@
+.header-component {
+    border: 2px solid lightpink;
+}
+
+.nav-component {
+    border: 2px solid lightsalmon;
+}
+
+.body-component {
+    height: 100%;
+}
+
+.emailApp-main {
+    flex-grow: 1;
+}
+
+.email-side-nav {
+    background-color: lightblue;
+    margin-top: 10px;
+    margin-right: 10px;
+    border-radius: 2px;
+    padding: 10px;
+}
+
+.nav-item {
+    margin: 5px;
+    padding: 5px;
+    background-color: lightgrey;
+}
+
+
+/* .email-filter {
+    margin-top: 10px;
+} */
+
+.email-list {
+    padding: 0px
+}
+
+.email-preview-header {
+    border: 2px solid lightgray;
+    padding: 5px;
+    border-radius: 2px;
+    margin: 2px;
+}
+
+.email-preview-header-spacer {
+    width: 100px;
+}
+
+.short-preview {
+    background-color: lightskyblue;
+    padding: 5px;
+    border-radius: 2px;
+    margin: 2px;
+}
+
+.email-preview-header-txt {
+    margin: 2px;
+    width: 100%;
+    /* justify-content: space-between; */
+}
+
+.email-preview-txt {
+    margin: 10px;
+    width: 100%;
+    /* justify-content: space-between; */
+}
+
+.extended-preview {
+    background-color: white;
+    border: 2px solid lightgray;
+    border-radius: 4px;
+}
+
+.email-body {
+    background-color: rgb(253, 219, 127);
+    ;
+    margin: 10px;
+    padding: 20px;
+    border-radius: 4px;
+}
+
+.email-compose-title {
+    background-color: lightgray;
+    padding: 5px;
+    font-weight: bold;
+}
+
+.compose-commands {
+    cursor: pointer;
+    margin: 10px;
+    width: 50px;
+    height: 50px;
+}
+
+.new-email-img {
+    cursor: pointer;
+    margin: 10px;
+    width: 50px;
+    height: 30px;
+}
+
+.preview-commands {
+    cursor: pointer;
+    margin: 2px;
+    width: 35px;
+    height: 35px;
+}
+
+.btn {
+    border-radius: 4px;
+    border: none;
+    width: 60px;
+}
+
+.delete-btn {
+    border: 2px solid red;
+    background-color: pink;
+    /* background-image: url("/img/delete.png"); */
+}
+
+.undelete-btn {
+    border: 2px solid turquoise;
+}
+
+.email-filter-read-btn {
+    height: 30px;
+    width: 120px;
+    border-radius: 4px;
+    border: none;
+    background-color: lightgray;
+}
+
+.email-filter-read-btn-on {
+    background-color: lightgreen;
+}
+
+.large-subject {
+    font-size: 2rem;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+    transition: opacity .5s;
+}
+
+.fade-enter,
+.fade-leave-to
+/* .fade-leave-active below version 2.1.8 */
+
+{
+    opacity: 0;
+}

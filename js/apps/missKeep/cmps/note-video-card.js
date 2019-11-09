@@ -43,10 +43,12 @@ export default {
         },
     },
 
-
+    components: {
+        cardBtns
+    },
     data() {
         return {
-
+            order: false,
             showBtns: false,
             displayCard: 'flex',
             displayModal: false,

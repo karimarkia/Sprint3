@@ -39,10 +39,8 @@ export default {
         }
     },
     created() {
-        // this.currEmails = this.emails;
         eventBus.$on('setSort', (msg) => {
-            console.log('a sort has been requested, by: ', msg.data);
             this.currEmails = utilService.setSort(this.emails, msg.data)
         })
-    },
+    }
 }

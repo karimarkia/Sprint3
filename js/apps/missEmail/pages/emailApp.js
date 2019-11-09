@@ -27,14 +27,10 @@ export default {
                     </div>
                     <div class="emailApp-main flex-col">
                         <email-filter v-if="!isComposing" @filtered="setFilter"></email-filter>
-                        <transition name="fade">
-                            <router-view class="emailApp" :emails="emailsToShow" :folder="requestedFolder"></router-view>
-                        </transition>
+                        <router-view class="emailApp animated bounceInUp" :emails="emailsToShow" :folder="requestedFolder"></router-view>
                     </div>
                 </div>
-                <transition name="fade">
-                    <email-user-msg></email-user-msg>
-                </transition>
+                <email-user-msg></email-user-msg>
             </div>
         </section>
         `,

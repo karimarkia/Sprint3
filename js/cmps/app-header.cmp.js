@@ -3,14 +3,26 @@
 export default {
     name: 'appHeader',
     template: `
-        <div class="header flex spread">
-            <h3>Welcome to the AppSus Sprint!</h3>
-            <nav>
-                <router-link to="/">Home</router-link> | 
-                <router-link to="/missEmail/emailList">Ms. Email</router-link> | 
-                <router-link to="/missKeep" exact>Ms. Keep</router-link> |
-                <router-link to="/missBooks">Ms. Books</router-link> 
-            </nav>
-        </div>
-    `
+        <nav>
+            <div class="header flex spread">
+            <img id="logo" src="img/logo.png" alt="">
+                <ul ref="navbar" class="nav-bar flex wrap clean">
+                    <li class="menu-item flex center-center"><router-link to="/"><img @click="toggleMenu('.nav-bar')" src="img/home.png"></router-link></li>
+                    <li class="menu-item flex center-center"><router-link to="/missEmail/emailList"><img @click="toggleMenu('.nav-bar')" src="img/emailApp.png"></router-link></li>
+                    <li class="menu-item flex center-center"><router-link to="/missKeep"><img @click="toggleMenu('.nav-bar')" src="img/keepApp.png"></router-link></li>
+                    <li class="menu-item flex center-center"><router-link to="/missBooks"><img @click="toggleMenu('.nav-bar')" src="img/booksApp.png"></router-link></li>
+                </ul>
+                <div class="header flex spread">
+                    
+                    <div><img class="hamburger" @click="toggleMenu('.nav-bar')" src="img/hamburger.png"></div>
+                </div>           
+            </div>
+        </nav> 
+    `,
+    methods: {
+        toggleMenu(menu) {
+            let elMenu = this.$refs.navbar;
+            elMenu.classList.toggle('show-hide');
+        }
+    },
 }

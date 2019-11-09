@@ -1,9 +1,39 @@
-.header-component {
-    border: 2px solid lightpink;
+.router-link-active {
+    color: blue;
 }
 
+
+/* .header-component {
+    border: 2px solid lightpink;
+} */
+
 .nav-component {
-    border: 2px solid lightsalmon;
+    border: 2px solid #8d9db6;
+}
+
+.nav-bar {
+    flex-direction: column;
+    position: fixed;
+    background-color: #8d9db6;
+    border: 4px solid white;
+    border-radius: 12px;
+    top: 60px;
+    right: 20px;
+    height: 300px;
+    width: 300px;
+    padding-top: 35px;
+    transition: all .6s;
+    z-index: 100000;
+}
+
+.menu-item {
+    color: white;
+    font-family: Montserrat, sans-serif;
+    margin-right: 10px;
+}
+
+.hamburger {
+    margin-right: 10px;
 }
 
 .body-component {
@@ -25,13 +55,12 @@
 .nav-item {
     margin: 5px;
     padding: 5px;
-    background-color: lightgrey;
+    /* background-color: lightgrey; */
 }
 
-
-/* .email-filter {
-    margin-top: 10px;
-} */
+.show-hide {
+    right: -400px;
+}
 
 .email-list {
     padding: 0px
@@ -146,9 +175,35 @@
 }
 
 .fade-enter,
-.fade-leave-to
-/* .fade-leave-active below version 2.1.8 */
-
-{
+.fade-leave-to {
     opacity: 0;
+}
+
+@media screen and (max-width:600px) {
+    .email-app-body {
+        flex-direction: column
+    }
+    .email-side-nav {
+        margin-top: 5px;
+        margin-bottom: 5px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        margin: 5px;
+    }
+    .email-side-nav-button-container {
+        flex-direction: row;
+        align-items: center
+    }
+    .email-filter {
+        margin-right: 10px;
+    }
+    .email-details-container {
+        margin-bottom: 10px;
+    }
+    progress {
+        margin-top: 0px;
+    }
 }

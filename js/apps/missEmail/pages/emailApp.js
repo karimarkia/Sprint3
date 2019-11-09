@@ -95,11 +95,11 @@ export default {
                 this.emails = emails
             })
         eventBus.$on('emailSent', (msg) => {
-            console.log('UserMsg got new Msg!', msg.txt);
+            // console.log('UserMsg got new Msg!', msg.txt);
             this.isComposing = false
         })
         eventBus.$on('updateStats', (msg) => {
-            console.log('UserMsg got new Msg!', msg.txt);
+            // console.log('UserMsg got new Msg!', msg.txt);
             this.updateStats()
         })
         this.updateStats();

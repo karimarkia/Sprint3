@@ -9,11 +9,14 @@ export default {
             <section @click.stop="extendPreview">
                 <li v-if="email" class="email clean">
                     <div :class="{'extended-preview': isExtendPreview}" class="short-preview flex-col">
-                        <div v-if="!isExtendPreview" class="short-preview flex spread">
+                        <div v-if="!isExtendPreview" class="short-preview flex">
+                            <img class="preview-commands" :src="readType" alt="" />
                             <img class="preview-commands" @click.stop="makeStarred(email.id)" :src="starType" alt="" />
-                            <div :class="{bold: !email.isRead}">{{email.from}}</div>
-                            <div>{{email.subject}}</div>
-                            <div>{{email.sentAt}}</div>
+                            <div class="email-preview-txt flex centered"> 
+                                <div :class="{bold: !email.isRead}">{{email.from}}</div>
+                                <div>{{email.subject}}</div>
+                                <div>{{email.sentAt}}</div>
+                            </div>
                         </div>
                         <div v-if="isExtendPreview" classs="flex-col">
                             <div class="flex spread">
@@ -78,6 +81,10 @@ export default {
         starType() {
             if (this.email.isStarred === false) return '/img/notstar.png';
             if (this.email.isStarred === true) return '/img/star.png';
+        },
+        readType() {
+            if (this.email.isRead === false) return '/img/unread.png';
+            if (this.email.isRead === true) return '/img/read.png';
         }
     },
 }

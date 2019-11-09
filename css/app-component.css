@@ -44,6 +44,10 @@
     margin: 2px;
 }
 
+.email-preview-txt {
+    /* flex-grow: 1; */
+}
+
 .extended-preview {
     background-color: white;
     border: 2px solid lightgray;

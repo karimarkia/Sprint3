@@ -107,6 +107,9 @@ function modifyEmailProperty(emailId, property) {
     if (idx !== -1 && property === 'isRead') {
         gEmails[idx].isRead = true;
     }
+    if (idx !== -1 && property === 'isUnread') {
+        gEmails[idx].isRead = false;
+    }
     if (idx !== -1 && property === 'isStarred') {
         gEmails[idx].isStarred = !gEmails[idx].isStarred;
     }
@@ -148,18 +151,17 @@ function getEmailStats() {
         unread: 0
     }
     gEmails.forEach(email => {
-        if (!email.isDeleted) {
-            if (email.isRead) {
-                counters.read++
+            if (!email.isDeleted) {
+                if (email.isRead) {
+                    counters.read++
+                }
+                if (!email.isRead) {
+                    counters.unread++
+                }
             }
-            if (!email.isRead) {
-                counters.unread++
-            }
-        }
-        if (email.isDeleted) counters.total--;
-    })
-    console.log('the current stats are: ', counters);
-
+            if (email.isDeleted) counters.total--;
+        })
+        // console.log('the current stats are: ', counters);
     return Promise.resolve(counters);
 }
 

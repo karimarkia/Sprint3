@@ -6,7 +6,7 @@ import { eventBus } from '../../../services/event-bus-service.js';
 export default {
     name: 'emailDetails',
     template: `
-            <section v-if="currEmail" class="email-details-container flex-col">  
+            <section v-if="currEmail" class="email-details-container flex-col"> 
                 <div class="flex">
                     <div class="email-details flex-col">
                         <h3>From: {{this.currEmail.from}}</h3>
@@ -17,9 +17,15 @@ export default {
                 <div class="email-body">
                     <p>{{this.currEmail.body}}</p>
                 </div>
-                <div class="flex end">
-                <img class="compose-commands" @click="deleteEmail(currEmail.id)" :src="trashType" alt="" />
-                <img class="compose-commands" @click="closeDetails" src="/img/back.png" alt="" />
+                <div class="flex spread">
+                    <div class="flex end">
+                        <img class="compose-commands" @click="deleteEmail(currEmail.id)" :src="starType" alt="" /> 
+                        <img class="compose-commands" @click="markAsUnread(currEmail.id)" src="/img/unread.png" alt="" title="mark as unread"/> 
+                    </div>
+                    <div class="flex end">
+                        <img class="compose-commands" @click="deleteEmail(currEmail.id)" :src="trashType" alt="" />
+                        <img class="compose-commands" @click="closeDetails" src="/img/back.png" alt="" />
+                    </div>
                 </div>
             </section>
             `,
@@ -48,7 +54,6 @@ export default {
             // console.log('the prev email ID is: ', this.prevEmailId)
         },
         deleteEmail(emailId) {
-            //we are no longer really deleting the email...
             emailService.modifyEmailProperty(this.currEmail.id, 'isDeleted')
                 .then(() => {
                     const msg = {
@@ -62,7 +67,16 @@ export default {
                     }
                     eventBus.$emit('updateStats', msg2);
                     this.$router.push('emailList');
-
+                })
+        },
+        markAsUnread(emailId) {
+            emailService.modifyEmailProperty(this.currEmail.id, 'isUnread')
+                .then(() => {
+                    const msg = {
+                        txt: 'the stats have been updated!',
+                        type: 'success'
+                    }
+                    eventBus.$emit('updateStats', msg);
                 })
         },
         closeDetails() {
@@ -88,6 +102,10 @@ export default {
         trashType() {
             if (this.currEmail.isDeleted === false) return '/img/delete.png';
             if (this.currEmail.isDeleted === true) return '/img/undelete.png';
+        },
+        starType() {
+            if (this.currEmail.isStarred === false) return '/img/notstar.png';
+            if (this.currEmail.isStarred === true) return '/img/star.png';
         }
     },
     components: {},

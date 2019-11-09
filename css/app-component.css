@@ -28,16 +28,17 @@
     background-color: lightgrey;
 }
 
-.email-filter {
+
+/* .email-filter {
     margin-top: 10px;
-}
+} */
 
 .email-list {
     padding: 0px
 }
 
 .short-preview {
-    background-color: rgb(253, 219, 127);
+    background-color: lightskyblue;
     padding: 5px;
     border-radius: 2px;
     margin: 2px;
@@ -57,7 +58,14 @@
     border-radius: 4px;
 }
 
+.email-compose-title {
+    background-color: lightgray;
+    padding: 5px;
+    font-weight: bold;
+}
+
 .compose-commands {
+    margin: 10px;
     width: 50px;
     height: 50px;
 }

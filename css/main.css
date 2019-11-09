@@ -2,6 +2,7 @@
 @import './app-component.css';
 * {
     margin: 0;
+    box-sizing: border-box;
 }
 
 a {
@@ -9,20 +10,31 @@ a {
     text-decoration: none;
 }
 
-input,
+input:not(.compose-commands),
 textarea {
     width: 100%;
     border: none;
-    background-color: lightgray;
-    margin-bottom: 10px;
+    margin: 10px;
     border-radius: 4px;
     padding: 10px;
 }
 
+input.compose {
+    border-bottom: 2px solid lightgray;
+}
+
+textarea {
+    border: 2px solid lightgray;
+    margin-top: 30px;
+    height: 200px;
+}
+
+.search-field {
+    background-color: lightgray;
+}
+
 .main-container {
-    border: 2px solid black;
     padding: 10px;
-    height: 100vh;
 }
 
 .nav-container {
@@ -36,7 +48,10 @@ textarea {
 }
 
 .email-compose-container {
-    padding: 10px;
+    border: 2px solid lightgray;
+    border-radius: 4px;
+    margin-top: 10px;
+    /* padding: 10px; */
 }
 
 .email-details-container {

@@ -56,7 +56,13 @@ export default {
                         type: 'success'
                     }
                     eventBus.$emit('show-msg', msg);
-                    this.$router.push('emailList')
+                    const msg2 = {
+                        txt: 'the stats have been updated!',
+                        type: 'success'
+                    }
+                    eventBus.$emit('updateStats', msg2);
+                    this.$router.push('emailList');
+
                 })
         },
         closeDetails() {
@@ -86,21 +92,17 @@ export default {
     },
     components: {},
     created() {
-
         const emailId = this.$route.params.id;
         emailService.modifyEmailProperty(emailId, 'isRead')
             .then(email => {
                 this.currEmail = email;
+                const msg = {
+                    txt: 'the stats have been updated!',
+                    type: 'success'
+                }
+                eventBus.$emit('updateStats', msg);
                 this.loadEmail();
             })
-
-        // emailService.getEmailById(id)
-        //     .then(res => {
-        //         this.currEmail = res;
-        //         console.log('the gotten email is: ', res)
-        //         this.loadEmail();
-
-        //     })
     },
     watch: {
         '$route.params.id' () {

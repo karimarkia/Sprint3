@@ -7,15 +7,29 @@ export default {
     name: 'emailCompose',
     template: `
             <section v-if="newEmail" class="email-compose-container flex-col">  
-                <form class="email-compose-container" @submit.prevent="sendEmail">
-                    <input ref="inputTo" type="text" placeholder="to" v-model="newEmail.to" />
-                    <input ref="inputSubject" type="text" placeholder="subject" v-model="newEmail.subject" />
-                    <textarea ref="inputEmailBody" placeholder="what do you have to say?" v-model="newEmail.body"></textarea>
-                    <button class="btn"><img class="compose-commands" src="/img/send.png" alt="" /></button>
+                <div class="email-compose-title">New Message</div>
+                <form @submit.prevent="sendEmail">
+                <div class="flex centered">
+                    <input class="compose" ref="inputTo" type="text" placeholder="To:" v-model="newEmail.to" required />
+                </div>
+                <div class="flex centered">
+                    <input class="compose" ref="inputSubject" type="text" placeholder="Subject" v-model="newEmail.subject" required />
+                </div>
+                <div class="flex centered">
+                    <textarea ref="inputEmailBody" placeholder="what do you have to say?" v-model="newEmail.body" required></textarea>
+                </div>
+                <div class="flex spread">
+                    <img class="compose-commands" @click="discardChanges" src="/img/delete.png" alt="" />
+                    <input type="image" class="compose-commands" src="/img/send.png" alt="Submit">
+                </div>
                 </form>
-                <img class="compose-commands" @click="discardChanges" src="/img/delete.png" alt="" />
+                <div class="flex end">
+                    
+                </div>
             </section>
             `,
+    // <span class="email-compose-field">Body:</span>
+    // <button class="btn"><img class="compose-commands" src="/img/send.png" alt="" /></button>
     data() {
         return {
             newEmail: null,
@@ -30,6 +44,11 @@ export default {
             this.newEmail = null;
             this.to = null;
             this.subject = null;
+            const msg = {
+                txt: 'changes have been discarded',
+                type: 'success'
+            }
+            eventBus.$emit('show-msg', msg);
             this.$router.push('emailList')
 
         },
@@ -40,7 +59,12 @@ export default {
                         txt: 'The email has been sent succefully',
                         type: 'success'
                     }
-                    eventBus.$emit('show-msg', msg);
+                    eventBus.$emit('emailSent', msg);
+                    const msg2 = {
+                        txt: 'the stats have been updated!',
+                        type: 'success'
+                    }
+                    eventBus.$emit('updateStats', msg2);
 
                     this.newEmail = emailService.getEmptyEmail()
                         .then(email => {

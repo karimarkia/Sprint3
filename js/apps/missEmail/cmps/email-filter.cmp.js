@@ -4,7 +4,7 @@ export default {
     name: 'emailFilter',
     template: `
         <section class="email-filter">
-                <input type="text" placeholder="search these mails" v-model="filterBy.string" />
+                <input class="search-field" type="text" placeholder="search these mails" v-model="filterBy.string" />
         </section>
         `,
     data() {

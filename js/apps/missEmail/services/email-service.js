@@ -9,7 +9,8 @@ export const emailService = {
     sendEmail,
     getPrevNextEmailId,
     deleteEmail,
-    modifyEmailProperty
+    modifyEmailProperty,
+    getEmailStats
 }
 
 const STORAGE_KEY = 'MissEmails'
@@ -94,7 +95,6 @@ function getEmptyEmail() {
 }
 
 function sendEmail(email) {
-    console.log('the email that the service is sending is: ', email);
     gEmails.unshift(email)
     utilService.saveToStorage(STORAGE_KEY, gEmails)
     return Promise.resolve();
@@ -106,6 +106,9 @@ function modifyEmailProperty(emailId, property) {
 
     if (idx !== -1 && property === 'isRead') {
         gEmails[idx].isRead = true;
+    }
+    if (idx !== -1 && property === 'isStarred') {
+        gEmails[idx].isStarred = !gEmails[idx].isStarred;
     }
     if (idx !== -1 && property === 'isDeleted') {
         if (!gEmails[idx].isDeleted) {
@@ -136,16 +139,28 @@ function deleteEmail(emailId) {
     utilService.saveToStorage(STORAGE_KEY, gEmails);
     console.log('not really deleting email: ', emailId);
     return Promise.resolve();
+}
 
-    // getEmailById(emailId)
-    //     .then((email) => {
-    //         email.isDeleted = true;
-    //         let idx = gEmails.findIndex(res => res.id === emailId);
-    //         if (idx !== -1) gEmails.splice(idx, 1, email);
-    //         utilService.saveToStorage(STORAGE_KEY, gEmails);
-    //         console.log('not really deleting email: ', emailId);
-    //     })
-    // return Promise.resolve();
+function getEmailStats() {
+    let counters = {
+        total: gEmails.length,
+        read: 0,
+        unread: 0
+    }
+    gEmails.forEach(email => {
+        if (!email.isDeleted) {
+            if (email.isRead) {
+                counters.read++
+            }
+            if (!email.isRead) {
+                counters.unread++
+            }
+        }
+        if (email.isDeleted) counters.total--;
+    })
+    console.log('the current stats are: ', counters);
+
+    return Promise.resolve(counters);
 }
 
 function getPrevNextEmailId(emailId, direction) {

@@ -10,6 +10,7 @@ export default {
                 <li v-if="email" class="email clean">
                     <div :class="{'extended-preview': isExtendPreview}" class="short-preview flex-col">
                         <div v-if="!isExtendPreview" class="short-preview flex spread">
+                            <img class="preview-commands" @click.stop="makeStarred(email.id)" :src="starType" alt="" />
                             <div :class="{bold: !email.isRead}">{{email.from}}</div>
                             <div>{{email.subject}}</div>
                             <div>{{email.sentAt}}</div>
@@ -33,16 +34,15 @@ export default {
     data() {
         return {
             isExtendPreview: false,
+            isStarred: false
         }
     },
     methods: {
-        // selectEmail(emailId) {
-        //     // eventBus.$emit('show-msg', msg);
-        //     // this.$emit('selected', emailId)
-        //     this.$router.push('emailDetails/' + emailId)
-        // },
         extendPreview() {
             this.isExtendPreview = !this.isExtendPreview
+        },
+        makeStarred() {
+            emailService.modifyEmailProperty(this.email.id, 'isStarred')
         },
         deleteEmail(emailId) {
             emailService.modifyEmailProperty(this.email.id, 'isDeleted')
@@ -52,6 +52,11 @@ export default {
                         type: 'success'
                     }
                     eventBus.$emit('show-msg', msg);
+                    const msg2 = {
+                        txt: 'the stats have been updated!',
+                        type: 'success'
+                    }
+                    eventBus.$emit('updateStats', msg2);
                 })
         }
     },
@@ -69,6 +74,10 @@ export default {
         trashType() {
             if (this.email.isDeleted === false) return '/img/preview-delete.png';
             if (this.email.isDeleted === true) return '/img/preview-undelete.png';
+        },
+        starType() {
+            if (this.email.isStarred === false) return '/img/notstar.png';
+            if (this.email.isStarred === true) return '/img/star.png';
         }
     },
 }

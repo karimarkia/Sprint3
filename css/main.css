@@ -3,6 +3,7 @@
 * {
     margin: 0;
     box-sizing: border-box;
+    /* height: 100vh; */
 }
 
 a {
@@ -35,6 +36,7 @@ textarea {
 
 .main-container {
     padding: 10px;
+    /* max-height: 300px; */
 }
 
 .nav-container {
@@ -68,4 +70,19 @@ textarea {
 .footer {
     border: 2px solid darkblue;
     padding: 10px;
+}
+
+@media screen and (max-width:600px) {
+    .email-app-body {
+        flex-direction: column
+    }
+    .email-side-nav {
+        flex-direction: row;
+        justify-content: space-between;
+        margin: 5px;
+    }
+    .email-side-nav-button-container {
+        flex-direction: row;
+        align-items: center
+    }
 }

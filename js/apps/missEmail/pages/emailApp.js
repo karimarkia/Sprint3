@@ -1,29 +1,34 @@
 'use strict'
 
 import { emailService } from '../services/email-service.js';
-
 import { eventBus } from '../../../services/event-bus-service.js'
+
 import emailNav from '../cmps/email-nav.cmp.js';
 import emailFilter from '../cmps/email-filter.cmp.js';
 import emailDetails from '../cmps/email-details.cmp.js';
-import emailPreview from '../cmps/email-preview.cmp.js';
-import emailCompose from '../cmps/email-compose.cmp.js';
+// import emailPreview from '../cmps/email-preview.cmp.js';
+import emailUserMsg from '../cmps/email-user-msg.cmp.js';
+// import emailCompose from '../cmps/email-compose.cmp.js';
 
 
 export default {
     name: 'emailApp',
+    // props: ['folder'],
     template: `
         <section class="missEmailApp">
-            <div class="flex">
-                <div class="email-side-nav flex-col">
-                    <router-link @click.native="toggleSearch" @doneComposing="toggleSearch" to="/missEmail/emailCompose"><img class="compose-commands" src="/img/newemail.png" alt="" /></router-link>
-                    <emailNav></emailNav>
-                    percent read: {{showStatsPercentage}}
+            <div class="flex-col">
+                <div class="email-app-body flex">
+                    <div class="email-side-nav flex-col">
+                        <router-link @click.native="toggleSearch" @doneComposing="toggleSearch" to="/missEmail/emailCompose"><img class="compose-commands" src="/img/newemail.png" alt="" /></router-link>
+                        <emailNav></emailNav>
+                        percent read: {{showStatsPercentage}}
+                    </div>
+                    <div class="emailApp-main flex-col">
+                        <email-filter v-if="!isComposing" class="flex" @filtered="setFilter"></email-filter>
+                        <router-view class="emailApp" :emails="emailsToShow" :folder="requestedFolder"></router-view>
+                    </div>
                 </div>
-                <div class="emailApp-main flex-col">
-                    <email-filter v-if="!isComposing" class="flex" @filtered="setFilter"></email-filter>
-                    <router-view class="emailApp" :emails="emailsToShow"></router-view>
-                </div>
+                <email-user-msg></email-user-msg>
             </div>
         </section>
         `,
@@ -43,7 +48,8 @@ export default {
             },
             isDetailsUp: false,
             selectedEmail: null,
-            isComposing: false
+            isComposing: false,
+            requestedFolder: null
         }
     },
     methods: {
@@ -98,20 +104,18 @@ export default {
         }
     },
     created() {
+        // console.log('emailApp: this is the var pushed by the routerlink: ', this.$route.params.folder)
         emailService.getEmails()
             .then(emails => {
                 this.emails = emails
             })
         eventBus.$on('emailSent', (msg) => {
-            // console.log('UserMsg got new Msg!', msg.txt);
             this.isComposing = false
         })
         eventBus.$on('newEmailDiscarded', (msg) => {
-            // console.log('UserMsg got new Msg!', msg.txt);
             this.isComposing = false
         })
         eventBus.$on('updateStats', (msg) => {
-            // console.log('UserMsg got new Msg!', msg.txt);
             this.updateStats()
         })
         this.updateStats();
@@ -120,7 +124,22 @@ export default {
         emailNav,
         emailFilter,
         emailDetails,
-        emailPreview,
-        emailCompose
+        // emailPreview,
+        emailUserMsg,
+        // emailCompose
     },
-}
+
+
+
+    //////////////////////////////////////////////////////////////////////////////////
+    //////////   for consolidating the folder views into a single component  /////////
+    // watch: {
+    //     '$route.params.folder' () {
+    //         console.log('Route param: "folder" changed', this.$route.params.folder);
+    //         if (this.$route.params.folder === 'inbox') {
+    //             this.requestedFolder = 'inbox'
+    //         }
+    //         // this.$router.push('/missEmail/emailList')
+    //     }
+    // }
+} ///////////////////////////////////////////////////////////////////////////////////

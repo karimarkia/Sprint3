@@ -13,7 +13,7 @@ var options = {
     name: 'AppSus',
     el: '.app-sus',
     template: `
-        <div class="main-container">
+        <div class="flex-col spread">
             <app-header></app-header>
             <router-view></router-view>
         </div>

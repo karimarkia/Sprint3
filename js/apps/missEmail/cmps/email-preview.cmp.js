@@ -53,7 +53,7 @@ export default {
             emailService.modifyEmailProperty(this.email.id, 'isDeleted')
                 .then(() => {
                     const msg = {
-                        txt: `The email has been deleted succefully (${emailId})`,
+                        txt: `The email has been deleted succefully (email ID: '${emailId}')`,
                         type: 'success'
                     }
                     eventBus.$emit('show-msg', msg);

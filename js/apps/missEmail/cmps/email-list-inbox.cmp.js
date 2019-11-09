@@ -6,7 +6,7 @@ import emailPreview from './email-preview.cmp.js';
 
 export default {
     name: 'email-list-inbox',
-    props: ['emails'],
+    props: ['emails', 'folder'],
     template: `
         <section class="body-component">
             <ul class="email-list flex-col">
@@ -36,9 +36,41 @@ export default {
             return this.currEmails.filter(email =>
                 email.isDeleted === false
             )
+
+            //////////////////////////////////////////////////////////////////
+            ///////// for consolidating all folder pages into one   //////////
+
+            // if (this.folder === 'inbox') {
+            //     this.currEmails = this.emails;
+            //     return this.currEmails.filter(email =>
+            //         email.isDeleted === false
+            //     )
+            // }
+            // if (this.folder === 'starred') {
+            //     this.currEmails = this.emails;
+            //     return this.emails.filter(email =>
+            //         email.isStarred === true
+            //     )
+            // }
+            // if (this.folder === 'sent') {
+            //     this.currEmails = this.emails;
+            //     return this.emails.filter(email =>
+            //         email.isSentByMe === true
+            //     )
+            // }
+            // if (this.folder === 'deleted') {
+            //     this.currEmails = this.emails;
+            //     return this.emails.filter(email =>
+            //         email.isDeleted === true
+            //     )
+            // }
+
+            ///////////////////////////////////////////////////////////////////
         }
+
     },
     created() {
+        // console.log('emailApp: this is the var pushed by the routerlink: ', this.folder)
         eventBus.$on('setSort', (msg) => {
             this.currEmails = utilService.setSort(this.emails, msg.data)
         })

@@ -26,6 +26,8 @@ const myRoutes = [{
         component: missEmail,
         children: [{
                 path: 'emailList',
+                name: 'list',
+                props: true,
                 component: emailListInbox
             },
             {

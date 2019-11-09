@@ -37,6 +37,17 @@
     padding: 0px
 }
 
+.email-preview-header {
+    border: 2px solid lightgray;
+    padding: 5px;
+    border-radius: 2px;
+    margin: 2px;
+}
+
+.email-preview-header-spacer {
+    width: 100px;
+}
+
 .short-preview {
     background-color: lightskyblue;
     padding: 5px;
@@ -44,10 +55,16 @@
     margin: 2px;
 }
 
+.email-preview-header-txt {
+    margin: 2px;
+    width: 100%;
+    /* justify-content: space-between; */
+}
+
 .email-preview-txt {
     margin: 10px;
     width: 100%;
-    justify-content: space-between;
+    /* justify-content: space-between; */
 }
 
 .extended-preview {

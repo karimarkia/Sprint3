@@ -15,49 +15,49 @@ export const emailService = {
 
 const STORAGE_KEY = 'MissEmails'
 
-var gEmails = [{
-        id: utilService.makeId(),
-        from: 'ohad',
-        to: 'ohad',
-        subject: 'test',
-        body: 'Laboris quis ad nulla veniam commodo tempor ipsum. Enim cupidatat deserunt elit ex do eu duis aliquip exercitation. Pariatur cupidatat ut Lorem pariatur occaecat commodo id ad anim excepteur ea.',
-        isStarred: true,
-        wasStarred: false,
-        isSentByMe: false,
-        wasSentByMe: false,
-        isRead: false,
-        isDeleted: false,
-        sentAt: new Date().toTimeString().split(' ')[0]
-    },
-    {
-        id: utilService.makeId(),
-        from: 'ohad',
-        to: 'david',
-        subject: 'testing',
-        body: 'Laboris quis ad nulla veniam commodo tempor ipsum. Enim cupidatat deserunt elit ex do eu duis aliquip exercitation. Pariatur cupidatat ut Lorem pariatur occaecat commodo id ad anim excepteur ea.',
-        isStarred: true,
-        wasStarred: false,
-        isSentByMe: false,
-        wasSentByMe: false,
-        isRead: false,
-        isDeleted: false,
-        sentAt: new Date().toTimeString().split(' ')[0]
-    },
-    {
-        id: utilService.makeId(),
-        from: 'popo',
-        to: 'momo',
-        subject: 'nice!',
-        body: 'Laboris quis ad nulla veniam commodo tempor ipsum. Enim cupidatat deserunt elit ex do eu duis aliquip exercitation. Pariatur cupidatat ut Lorem pariatur occaecat commodo id ad anim excepteur ea.',
-        isStarred: false,
-        wasStarred: false,
-        isSentByMe: false,
-        wasSentByMe: false,
-        isRead: false,
-        isDeleted: false,
-        sentAt: new Date().toTimeString().split(' ')[0]
-    },
-]
+// var gEmails = [{
+//     id: utilService.makeId(),
+//     from: 'ohad',
+//     to: 'ohad',
+//         subject: 'test',
+//         body: 'Laboris quis ad nulla veniam commodo tempor ipsum. Enim cupidatat deserunt elit ex do eu duis aliquip exercitation. Pariatur cupidatat ut Lorem pariatur occaecat commodo id ad anim excepteur ea.',
+//         isStarred: true,
+//         wasStarred: false,
+//         isSentByMe: false,
+//         wasSentByMe: false,
+//         isRead: false,
+//         isDeleted: false,
+//         sentAt: new Date().toTimeString().split(' ')[0]
+//     },
+//     {
+//         id: utilService.makeId(),
+//         from: 'ohad',
+//         to: 'david',
+//         subject: 'testing',
+//         body: 'Laboris quis ad nulla veniam commodo tempor ipsum. Enim cupidatat deserunt elit ex do eu duis aliquip exercitation. Pariatur cupidatat ut Lorem pariatur occaecat commodo id ad anim excepteur ea.',
+//         isStarred: true,
+//         wasStarred: false,
+//         isSentByMe: false,
+//         wasSentByMe: false,
+//         isRead: false,
+//         isDeleted: false,
+//         sentAt: new Date().toTimeString().split(' ')[0]
+//     },
+//     {
+//         id: utilService.makeId(),
+//         from: 'popo',
+//         to: 'momo',
+//         subject: 'nice!',
+//         body: 'Laboris quis ad nulla veniam commodo tempor ipsum. Enim cupidatat deserunt elit ex do eu duis aliquip exercitation. Pariatur cupidatat ut Lorem pariatur occaecat commodo id ad anim excepteur ea.',
+//         isStarred: false,
+//         wasStarred: false,
+//         isSentByMe: false,
+//         wasSentByMe: false,
+//         isRead: false,
+//         isDeleted: false,
+//         sentAt: new Date().toTimeString().split(' ')[0]
+//     },
+// ]
 
 function getEmails() {
     var emails = utilService.loadFromLocalStorage(STORAGE_KEY)
@@ -86,7 +86,7 @@ function getEmptyEmail() {
         isStarred: false,
         wasStarred: false,
         isSentByMe: true,
-        // wasSentByMe: false,
+        wasSentByMe: false,
         isRead: false,
         isDeleted: false,
         sentAt: new Date().toTimeString().split(' ')[0]
@@ -177,3 +177,104 @@ function getPrevNextEmailId(emailId, direction) {
     }
     return gEmails[idx].id;
 }
+
+var gEmails = [{
+        "id": "wy0",
+        "from": "david",
+        "to": "Whomever",
+        "subject": "this is going places!",
+        "body": "Why do we use it?\nIt is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
+        "isStarred": false,
+        "wasStarred": false,
+        "isSentByMe": true,
+        "wasSentByMe": true,
+        "isRead": true,
+        "isDeleted": false,
+        "sentAt": "11:52:53"
+    },
+    {
+        "id": "Ynb",
+        "from": "Ohad",
+        "to": "mySelf",
+        "subject": "phew!",
+        "body": "damn bus....",
+        "isStarred": false,
+        "wasStarred": false,
+        "isSentByMe": true,
+        "wasSentByMe": true,
+        "isRead": false,
+        "isDeleted": false,
+        "sentAt": "11:17:09"
+    },
+    {
+        "id": "z68",
+        "from": "Bracha",
+        "to": "newMSG",
+        "subject": "for the messenger",
+        "body": "for the win !",
+        "isStarred": true,
+        "wasStarred": false,
+        "isSentByMe": true,
+        "wasSentByMe": true,
+        "isRead": false,
+        "isDeleted": false,
+        "sentAt": "02:29:24"
+
+    },
+    {
+        "id": "5G8",
+        "from": "Ohad",
+        "to": "newOne",
+        "subject": "interesting",
+        "body": "and annoying...",
+        "isStarred": false,
+        "wasStarred": false,
+        "isSentByMe": false,
+        "wasSentByMe": true,
+        "isRead": true,
+        "isDeleted": true,
+        "sentAt": "02:20:34"
+
+    },
+    {
+        "id": "mJJ",
+        "from": "ohad",
+        "to": "ohad",
+        "subject": "test",
+        "body": "Laboris quis ad nulla veniam commodo tempor ipsum. Enim cupidatat deserunt elit ex do eu duis aliquip exercitation. Pariatur cupidatat ut Lorem pariatur occaecat commodo id ad anim excepteur ea.",
+        "isStarred": true,
+        "wasStarred": false,
+        "isSentByMe": false,
+        "wasSentByMe": false,
+        "isRead": true,
+        "isDeleted": false,
+        "sentAt": "02:20:15"
+    }, {
+        "id": "QyM",
+        "from": "ohad",
+        "to": "david",
+        "subject": "testing",
+        "body": "Laboris quis ad nulla veniam commodo tempor ipsum. Enim cupidatat deserunt elit ex do eu duis aliquip exercitation. Pariatur cupidatat ut Lorem pariatur occaecat commodo id ad anim excepteur ea.",
+        "isStarred": false,
+        "wasStarred": false,
+        "isSentByMe": false,
+        "wasSentByMe": false,
+        "isRead": true,
+        "isDeleted": true,
+        "sentAt": "02:20:15"
+    },
+    {
+        "id": "q8a",
+        "from": "popo",
+        "to": "momo",
+        "subject": "nice!",
+        "body": "Laboris quis ad nulla veniam commodo tempor ipsum. Enim cupidatat deserunt elit ex do eu duis aliquip exercitation. Pariatur cupidatat ut Lorem pariatur occaecat commodo id ad anim excepteur ea.",
+        "isStarred": false,
+        "wasStarred": false,
+        "isSentByMe": false,
+        "wasSentByMe": false,
+        "isRead": false,
+        "isDeleted": false,
+        "sentAt": "02:20:15"
+    }
+]

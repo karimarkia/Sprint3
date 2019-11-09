@@ -11,8 +11,8 @@ export default {
                     <div :class="{'extended-preview': isExtendPreview}" class="short-preview flex-col">
                         <div v-if="!isExtendPreview" class="short-preview flex">
                             <div class="email-preview-icons flex">
-                            <img class="preview-commands" :src="readType" alt="" />
-                            <img v-if="!email.isDeleted" class="preview-commands" @click.stop="makeStarred(email.id)" :src="starType" alt="" />
+                                <img class="preview-commands" :src="readType" alt="" />
+                                <img class="preview-commands" @click.stop="makeStarred(email.id)" :src="starType" alt="" />
                             </div>
                             <div class="email-preview-txt flex spread"> 
                                 <div :class="{bold: !email.isRead}">{{email.from}}</div>

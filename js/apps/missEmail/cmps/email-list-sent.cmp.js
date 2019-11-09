@@ -1,5 +1,6 @@
 'use strict'
 
+import emailPreviewHeader from './email-preview-header.cmp.js';
 import emailPreview from './email-preview.cmp.js';
 
 export default {
@@ -8,6 +9,7 @@ export default {
     template: `
         <section class="body-component">
             <ul class="email-list flex-col">
+                <email-preview-header></email-preview-header>
                 <email-preview :email="currEmail" v-if="emails" v-for="(currEmail, idx) in emailsToShow" :key="currEmail.id"></email-preview> 
             </ul>
         </section>
@@ -19,6 +21,7 @@ export default {
         }
     },
     components: {
+        emailPreviewHeader,
         emailPreview
     },
     data() {

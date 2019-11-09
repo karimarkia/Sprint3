@@ -1,5 +1,7 @@
 'use strict'
 
+import utilService from '../../../services/util-service.js'
+import emailPreviewHeader from './email-preview-header.cmp.js';
 import emailPreview from './email-preview.cmp.js';
 
 export default {
@@ -8,29 +10,39 @@ export default {
     template: `
         <section class="body-component">
             <ul class="email-list flex-col">
-                <email-preview :email="currEmail" v-if="emails" v-for="(currEmail, idx) in emailsToShow" :key="currEmail.id"></email-preview> 
+                <email-preview-header></email-preview-header>
+                <email-preview :email="currEmail" v-if="currEmails" v-for="(currEmail, idx) in emailsToShow" :key="currEmail.id"></email-preview> 
             </ul>
         </section>
         `,
     methods: {
         selectEmail(emailId) {
-
             this.$emit('selected', emailId);
         }
     },
     components: {
+        emailPreviewHeader,
         emailPreview
     },
     data() {
         return {
+            currEmails: null,
             currEmail: null,
         }
     },
     computed: {
         emailsToShow() {
-            return this.emails.filter(email =>
+            this.currEmails = this.emails;
+            return this.currEmails.filter(email =>
                 email.isDeleted === false
             )
         }
-    }
+    },
+    created() {
+        // this.currEmails = this.emails;
+        eventBus.$on('setSort', (msg) => {
+            console.log('a sort has been requested, by: ', msg.data);
+            this.currEmails = utilService.setSort(this.emails, msg.data)
+        })
+    },
 }

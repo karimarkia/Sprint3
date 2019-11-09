@@ -1,10 +1,11 @@
 'use strict'
 
-export default  {
+export default {
     loadFromLocalStorage,
     saveToStorage,
     makeId,
-    getCurrentTime
+    getCurrentTime,
+    setSort
 
 }
 
@@ -42,11 +43,19 @@ function getCurrentTime() {
     }
     const weekDay = date.getDay()
     const daysOfTheWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
-    // time.min = (min < 10 ? "0" : "") + min;
+        // time.min = (min < 10 ? "0" : "") + min;
     for (var i = 0; i <= 6; i++) {
         if (weekDay === i) {
             time.weekDay = daysOfTheWeek[i]
         }
     }
     return time;
+}
+
+function setSort(array, key) {
+    return array.sort(function(a, b) {
+        var x = a[key];
+        var y = b[key];
+        return ((x.toLowerCase() < y.toLowerCase()) ? -1 : 1);
+    });
 }

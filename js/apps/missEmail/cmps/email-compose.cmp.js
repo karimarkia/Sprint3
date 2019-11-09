@@ -48,7 +48,9 @@ export default {
                 txt: 'changes have been discarded',
                 type: 'success'
             }
-            eventBus.$emit('show-msg', msg);
+            eventBus.$emit('newEmailDiscarded', msg);
+            console.log('discarded msg has been emitted to the bus');
+
             this.$router.push('emailList')
 
         },

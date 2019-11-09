@@ -10,12 +10,14 @@ export default {
                 <li v-if="email" class="email clean">
                     <div :class="{'extended-preview': isExtendPreview}" class="short-preview flex-col">
                         <div v-if="!isExtendPreview" class="short-preview flex">
+                            <div class="email-preview-icons flex">
                             <img class="preview-commands" :src="readType" alt="" />
-                            <img class="preview-commands" @click.stop="makeStarred(email.id)" :src="starType" alt="" />
-                            <div class="email-preview-txt flex centered"> 
+                            <img v-if="!email.isDeleted" class="preview-commands" @click.stop="makeStarred(email.id)" :src="starType" alt="" />
+                            </div>
+                            <div class="email-preview-txt flex spread"> 
                                 <div :class="{bold: !email.isRead}">{{email.from}}</div>
                                 <div>{{email.subject}}</div>
-                                <div>{{email.sentAt}}</div>
+                                <div class="email-preview-arrivedAt">{{email.sentAt}}</div>
                             </div>
                         </div>
                         <div v-if="isExtendPreview" classs="flex-col">

@@ -33,7 +33,8 @@ export default {
             email: null,
             selectedEmailId: null,
             filterBy: {
-                string: ''
+                string: '',
+                isRead: null
             },
             stats: {
                 total: null,
@@ -48,6 +49,8 @@ export default {
     methods: {
         setFilter(filterBy) {
             this.filterBy = filterBy
+            console.log('got filter, isRead?', this.filterBy.isRead);
+
         },
         selectEmail(emailId) {
             console.log('the emailID is: ', emailId)
@@ -77,7 +80,12 @@ export default {
     },
     computed: {
         emailsToShow() {
-            if (!this.filterBy.string.length) return this.emails;
+            // if (!this.filterBy.string.length) return this.emails;
+            if (this.filterBy.isRead) {
+                return this.emails.filter(email => {
+                    return (!email.isRead)
+                })
+            }
             return this.emails.filter(email => {
                 let searchStr = this.filterBy.string.toLowerCase()
                 return email.subject.toLowerCase().includes(searchStr) ||
@@ -95,6 +103,10 @@ export default {
                 this.emails = emails
             })
         eventBus.$on('emailSent', (msg) => {
+            // console.log('UserMsg got new Msg!', msg.txt);
+            this.isComposing = false
+        })
+        eventBus.$on('newEmailDiscarded', (msg) => {
             // console.log('UserMsg got new Msg!', msg.txt);
             this.isComposing = false
         })

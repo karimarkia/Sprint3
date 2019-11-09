@@ -6,7 +6,10 @@ export default {
     template: `
         <section class="user-msg">
             <div class="email-preview-header flex">
-                Status: <span v-if="msg">{{msg.txt}}</span>
+                Status:
+                <transition name="fade">
+                    <span v-if="msg">{{msg.txt}}</span>
+                </transition>
             </div>
         </section>
     `,
@@ -43,9 +46,4 @@ export default {
             }, 3000)
         })
     },
-    methods: {
-        // close() {
-        //     this.msg = null;
-        // }
-    }
 }

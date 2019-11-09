@@ -1,6 +1,9 @@
 import keepService from '../services/keep-service.js'
 import newNote from './new-note.js';
+import newTodo from './new-todo.js';
 import notesBoard from './notes-board.js';
+import searchFilter from './search-filter.cmp.js';
+import userMsg from './user-msg-cmp.js'
 
 export default {
     template: `   
@@ -9,7 +12,10 @@ export default {
 
             <section class=notes-app>
                 <new-note v-if="newNote" @displayTodo="newNote = false" ></new-note>
-                <notes-board :notes="notes"></notes-board>
+                <new-todo v-if="!newNote" @displayNote="newNote = true"></new-todo>
+                <search-filter @filtered="setFilter"></search-filter> 
+                <notes-board :notes="notesToshow"></notes-board>
+                <user-msg></user-msg>
             </section>
         </div>
 `,
@@ -17,20 +23,44 @@ export default {
         return {
             notes: [],
             newNote: true,
+            filterBy: null,
+
         }
     },
-    created() {
-     keepService.getNotes()
-                .then(note=>{
-                    this.notes=note
-                })
-    },
+
     mounted() {
 
+    },
+    methods: {    
+        setFilter(filterBy) {
+            // console.log('Parent got filter:', filterBy);
+            this.filterBy = filterBy
+        }
+    },
+    computed: {
+        notesToshow() {
+            if (!this.filterBy)
+                return this.notes;
+            var regex = new RegExp(`${this.filterBy.byName}`, 'i');
+            return this.notes.filter(note =>
+                regex.test(note.text.headline)
+            )
+        }
+
+    },
+    created() {
+        keepService.getNotes()
+            .then(note => {
+                this.notes = note
+            })
     },
     components: {
         newNote,
         notesBoard,
-        keepService
+        keepService,
+        newTodo,
+        searchFilter,
+        userMsg
     },
+  
 }

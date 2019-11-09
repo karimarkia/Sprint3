@@ -6,6 +6,7 @@ export default {
     <div class="container-notes">
         <div class="notes-board">
             <note-card v-for="note in notes" :note="note" :key="note.id"></note-card>
+            
         </div>
     </div>
 `

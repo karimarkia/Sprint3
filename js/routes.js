@@ -13,7 +13,7 @@ import emailListdeleted from './apps/missEmail/cmps/email-list-deleted.cmp.js';
 import emailDetails from './apps/missEmail/cmps/email-details.cmp.js';
 import emailCompose from './apps/missEmail/cmps/email-compose.cmp.js';
 
-import missKeep from './apps/missKeep/pages/home.js';
+import missKeep from './apps/missKeep/cmps/keep-main.js';
 import missBooks from './apps/missBooks/pages/main.js';
 
 
@@ -52,10 +52,10 @@ const myRoutes = [{
             }
         ]
     },
-    // {
-    //     path: '/missKeep',
-    //     component: missKeep
-    // },
+    {
+        path: '/missKeep',
+        component: missKeep
+    },
     {
         path: '/missBooks',
         component: missBooks

@@ -16,19 +16,25 @@ export default {
     // props: ['folder'],
     template: `
         <section class="missEmailApp">
-            <div class="flex-col">
+            <div class="body-container flex-col">
                 <div class="email-app-body flex">
                     <div class="email-side-nav flex-col">
-                        <router-link @click.native="toggleSearch" @doneComposing="toggleSearch" to="/missEmail/emailCompose"><img class="compose-commands" src="/img/newemail.png" alt="" /></router-link>
+                        <router-link @click.native="toggleSearch" @doneComposing="toggleSearch" to="/missEmail/emailCompose"><img class="new-email-img" src="/img/newemail.png" alt="" /></router-link>
                         <emailNav></emailNav>
-                        percent read: {{showStatsPercentage}}
+                        <div class="stats">
+                            <progress :value="showStatsPercentage" max="100"></progress>
+                        </div>
                     </div>
                     <div class="emailApp-main flex-col">
-                        <email-filter v-if="!isComposing" class="flex" @filtered="setFilter"></email-filter>
-                        <router-view class="emailApp" :emails="emailsToShow" :folder="requestedFolder"></router-view>
+                        <email-filter v-if="!isComposing" @filtered="setFilter"></email-filter>
+                        <transition name="fade">
+                            <router-view class="emailApp" :emails="emailsToShow" :folder="requestedFolder"></router-view>
+                        </transition>
                     </div>
                 </div>
-                <email-user-msg></email-user-msg>
+                <transition name="fade">
+                    <email-user-msg></email-user-msg>
+                </transition>
             </div>
         </section>
         `,
@@ -100,7 +106,7 @@ export default {
             })
         },
         showStatsPercentage() {
-            return parseInt((this.stats.read / this.stats.total) * 100) + '%'
+            return parseInt((this.stats.read / this.stats.total) * 100)
         }
     },
     created() {

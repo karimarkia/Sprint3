@@ -57,7 +57,7 @@ export default {
             emailService.modifyEmailProperty(this.currEmail.id, 'isDeleted')
                 .then(() => {
                     const msg = {
-                        txt: `The email has been deleted succefully (email ID: '${emailId}')`,
+                        txt: `The email has been deleted or restored successfully (email ID: '${emailId}')`,
                         type: 'success'
                     }
                     eventBus.$emit('show-msg', msg);
@@ -73,10 +73,15 @@ export default {
             emailService.modifyEmailProperty(this.currEmail.id, 'isUnread')
                 .then(() => {
                     const msg = {
+                        txt: `The email has been marked as unread (email ID: '${emailId}')`,
+                        type: 'success'
+                    }
+                    eventBus.$emit('show-msg', msg);
+                    const msg2 = {
                         txt: 'the stats have been updated!',
                         type: 'success'
                     }
-                    eventBus.$emit('updateStats', msg);
+                    eventBus.$emit('updateStats', msg2);
                 })
         },
         closeDetails() {

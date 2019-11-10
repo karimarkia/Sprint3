@@ -18,7 +18,7 @@ export default {
                  <i class="fas fa-map-pin" v-if="note.order" @click.stop="removePin(note)"></i>
                 </div>
                 <transition name="fade">
-                <card-btns v-show="showBtns" :note="note" :color="color" @deleteNote="deleteNote(note.id)" @addPin="addPin(note)" @changeColor="changeColor">
+                <card-btns :note="note" :color="color" @deleteNote="deleteNote(note.id)" @addPin="addPin(note)" @changeColor="changeColor">
                 </card-btns>
                 </transition>
         </div>

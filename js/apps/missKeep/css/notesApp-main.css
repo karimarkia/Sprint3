@@ -465,7 +465,7 @@ input.color-input {
     padding-top: 5px;
     padding-right: 15px;
     padding-left: 15px;
-    padding-bottom: 10px;
+    padding-bottom: 35px;
 }
 
 .todos-section>*:last-child {
@@ -577,6 +577,16 @@ input.color-input {
     .note-card {
         width: 90vw;
     }
+    .video-card {
+        width: 90vw;
+    }
+    .image-card{
+        /* width: 90vw; */
+    }
+    .audio-card{
+        width: 90vw;
+    }
+    
 
     .new-note {
         width: 90vw;
@@ -625,6 +635,13 @@ input.color-input {
     .opt-btns {
         margin-bottom: 10px;
     }
+    .video-card>div {
+        width: 280px;
+    }
+    .image-card{
+        /* width: 280px; */
+    }
+
 
 }
 

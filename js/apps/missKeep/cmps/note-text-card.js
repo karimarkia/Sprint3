@@ -22,7 +22,7 @@ export default {
             </div>
                <p @click="displayModal = true">{{note.text.body}}</p>
                <transition name="fade">
-                <card-btns v-show="showBtns" :note="note"  @sendToMail="sendToMail(note)" @deleteNote="deleteNote(note.id)" @addPin="addPin(note)" @changeColor="changeColor" @copyNote="copyNote(note)">
+                <card-btns :note="note"  @sendToMail="sendToMail(note)" @deleteNote="deleteNote(note.id)" @addPin="addPin(note)" @changeColor="changeColor" @copyNote="copyNote(note)">
                 </card-btns>
                 
                 </transition>

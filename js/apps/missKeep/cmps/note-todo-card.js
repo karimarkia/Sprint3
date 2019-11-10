@@ -29,7 +29,7 @@ export default {
                 </div>
             </div>
             <transition name="fade">
-                <card-btns v-show="showBtns" :note="note" @copyNote="copyNote(note)" @deleteNote="deleteNote(note.id)" @addPin="addPin(note)" @changeColor="changeColor">
+                <card-btns  :note="note" @copyNote="copyNote(note)" @deleteNote="deleteNote(note.id)" @addPin="addPin(note)" @changeColor="changeColor">
                 </card-btns>
                 </transition>
          

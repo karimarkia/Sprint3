@@ -3,18 +3,25 @@ a {
     text-decoration: none;
 }
 
-input:not(.compose-commands),
+
+/* input:not(.compose-commands), */
+
+.compose:not(.compose-commands),
+.search-field,
 textarea {
     width: 100%;
     border: none;
     margin: 10px;
     border-radius: 4px;
     padding: 10px;
-}
-
-input.compose {
     border-bottom: 2px solid lightgray;
 }
+
+
+/* 
+input.compose {
+    border-bottom: 2px solid lightgray;
+} */
 
 textarea {
     border: 2px solid lightgray;

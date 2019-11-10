@@ -1,7 +1,7 @@
 'use strict'
 
 import home from './cmps/home.cmp.js';
-import appHeader from './cmps/app-header.cmp.js';
+// import appHeader from './cmps/app-header.cmp.js';
 
 import missEmail from './apps/missEmail/pages/emailApp.js';
 // import missEmailHeader from './apps/missEmail/cmps/email-header.cmp.js';
@@ -14,7 +14,11 @@ import emailDetails from './apps/missEmail/cmps/email-details.cmp.js';
 import emailCompose from './apps/missEmail/cmps/email-compose.cmp.js';
 
 import missKeep from './apps/missKeep/cmps/keep-main.js';
-import missBooks from './apps/missBooks/pages/main.js';
+
+import missBooks from './apps/MissBooks/js/main.js';
+// import missBooks from './apps/MissBooks/js/cmps/book-app.cmp.js';
+import bookDetails from './apps/missBooks/js/cmps/book-details.cmp.js'
+import addBook from './apps/MissBooks/js/cmps/add-book.cmp.js'
 
 
 const myRoutes = [{
@@ -56,10 +60,22 @@ const myRoutes = [{
         path: '/missKeep',
         component: missKeep
     },
+    // {
+    //     path: '/missBooks',
+    //     component: missBooks
+    // },
     {
         path: '/missBooks',
         component: missBooks
     },
+    {
+        path: '/addBook',
+        component: addBook
+    },
+    {
+        path: '/book/:id',
+        component: bookDetails
+    }
 ]
 
 const myRouter = new VueRouter({ routes: myRoutes })

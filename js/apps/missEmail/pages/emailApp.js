@@ -23,11 +23,15 @@ export default {
             <div class="body-container flex-col">
                 <div class="email-app-body flex">
                     <div class="email-side-nav flex-col">
-                        <router-link @click.native="toggleSearch" @doneComposing="toggleSearch" to="/missEmail/emailCompose"><img class="new-email-img" src="/img/newemail.png" alt="" /></router-link>
-                        <emailNav></emailNav>
-                        <div class="stats">
-                            <progress :value="showStatsPercentage" max="100"></progress>
+                        <div class="flex-col">
+                            <router-link @click.native="toggleSearch" @doneComposing="toggleSearch" to="/missEmail/emailCompose"><img class="new-email-img" src="/img/newemail.png" alt="" /></router-link>
+                            <emailNav></emailNav>
                         </div>
+                        <div>
+                            <div class="stats">
+                                <progress :value="showStatsPercentage" max="100"></progress>
+                            </div>
+                        </div>    
                     </div>
                     <div class="emailApp-main flex-col">
                         <email-filter v-if="!isComposing" @filtered="setFilter"></email-filter>

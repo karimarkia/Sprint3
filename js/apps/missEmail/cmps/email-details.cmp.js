@@ -1,6 +1,7 @@
 'use strict'
 
 import { emailService } from '../services/email-service.js';
+import notesService from '../../missKeep/services/keep-service.js';
 import { eventBus } from '../../../services/event-bus-service.js';
 
 export default {
@@ -19,8 +20,9 @@ export default {
                 </div>
                 <div class="flex spread">
                     <div class="flex end">
-                        <img class="compose-commands" @click="deleteEmail(currEmail.id)" :src="starType" alt="" /> 
-                        <img class="compose-commands" @click="markAsUnread(currEmail.id)" src="/img/unread.png" alt="" title="mark as unread"/> 
+                        <img class="compose-commands" :src="starType" alt="" /> 
+                        <img class="compose-commands" @click="markAsUnread(currEmail.id)" src="/img/unread.png" alt="" title="Mark As Unread"/> 
+                        <img class="compose-commands" @click="sendToNotes(currEmail)" src="/img/keepApp.png" title="Send To Notes" />
                     </div>
                     <div class="flex end">
                         <img class="compose-commands" @click="deleteEmail(currEmail.id)" :src="trashType" alt="" />
@@ -83,6 +85,13 @@ export default {
                     }
                     eventBus.$emit('updateStats', msg2);
                 })
+        },
+        sendToNotes(email) {
+            let newNote = notesService.emptyNote()
+            newNote.text.headline = email.subject;
+            newNote.text.body = email.body;
+            console.log('this is the note that is being sent: ', newNote)
+            notesService.addNote(newNote)
         },
         closeDetails() {
             this.$router.push('emailList')

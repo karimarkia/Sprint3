@@ -15,7 +15,7 @@ export default {
     <div :style="{order: noteOrder, display: displayCard}">
         <div class="image-card" :style="{ background: note.color}" @mouseenter="toggleBtns" @mouseleave="toggleBtns">
             <div class="image-card">
-            <img style="width:280px;" :src="imageID">
+            <img style="width:220px;" :src="imageID">
               <i class="fas fa-map-pin" v-if="note.order" @click.stop="removePin(note)"></i>
                 </div>
             

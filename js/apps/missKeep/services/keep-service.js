@@ -48,30 +48,31 @@ var gNotes = [{
         data: {
             headline: 'fsefef',
             todos: [{
-                num: 1,
-                done: true,
-                text: 'ewfewfwefe'
-            }, 
-            {
-                num: 1,
-                done: false,
-                text: 'ewfewfwefe'
-            }, 
-            {
-                num: 1,
-                done: false,
-                text: 'ewfewfwefe'
-            }, 
-            {
-                num: 1,
-                done: true,
-                text: 'ewfewfwefe'
-            }, 
-            {
-                num: 1,
-                done: false,
-                text: 'ewfewfwefe'
-            }, ]
+                    num: 1,
+                    done: true,
+                    text: 'ewfewfwefe'
+                },
+                {
+                    num: 1,
+                    done: false,
+                    text: 'ewfewfwefe'
+                },
+                {
+                    num: 1,
+                    done: false,
+                    text: 'ewfewfwefe'
+                },
+                {
+                    num: 1,
+                    done: true,
+                    text: 'ewfewfwefe'
+                },
+                {
+                    num: 1,
+                    done: false,
+                    text: 'ewfewfwefe'
+                },
+            ]
         },
         color: '#ff9555',
         order: false,
@@ -98,7 +99,7 @@ function emptyNote() {
 
 function addNote(note) {
     gNotes.unshift(note)
-    console.log('the updated gNotes now looks like this: ', gNotes)
+        // console.log('the updated gNotes now looks like this: ', gNotes)
     utilService.saveToStorage(STORAGE_KEY, gNotes);
 }
 
@@ -106,14 +107,12 @@ function addNote(note) {
 
 function getNotes() {
     var notes = utilService.loadFromLocalStorage(STORAGE_KEY)
-
-
     if (!notes || notes.length === 0) {
         console.log('the notes service got here')
         notes = gNotes
         utilService.saveToStorage(STORAGE_KEY, gNotes)
     }
-    // utilService.saveToStorage(STORAGE_KEY, gNotes);
+    gNotes = notes;
     return Promise.resolve(gNotes);
 
 }

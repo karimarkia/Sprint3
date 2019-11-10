@@ -9,11 +9,7 @@ export default {
     `,
     data() {
         return {
-<<<<<<< HEAD
-            appTitle: 'Hi!',
-=======
-            
->>>>>>> 343490eeee354f924e8e43e2580476188d709225
+
         }
     }
 }

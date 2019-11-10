@@ -8,7 +8,7 @@ import {
 } from '../services/keep-service.js'
 import modal from './modal.cmp.js'
 import cardBtns from './text-card-btns-cmp.js'
-import { eventBus, EVENT_SHOW_MSG }from '../services/event-bus.js'
+import { eventBus, EVENT_SHOW_MSG } from '../services/event-bus.js'
 
 export default {
     name: 'textComp',
@@ -24,6 +24,7 @@ export default {
                <transition name="fade">
                 <card-btns v-show="showBtns" :note="note"  @sendToMail="sendToMail(note)" @deleteNote="deleteNote(note.id)" @addPin="addPin(note)" @changeColor="changeColor" @copyNote="copyNote(note)">
                 </card-btns>
+                
                 </transition>
         </div>
         <transition name="fade">
@@ -50,7 +51,7 @@ export default {
         },
         deleteNote(noteid) {
             deleteNote(noteid)
-            eventBus.$emit(EVENT_SHOW_MSG,'Note Delete','error')
+            eventBus.$emit(EVENT_SHOW_MSG, 'Note Delete', 'error')
         },
         removePin(note) {
             this.showBtns = false;
@@ -72,6 +73,7 @@ export default {
             copyNote(noteid)
         },
         sendToMail(note) {
+
             console.log(note);
             setTimeout(() => {
                 this.$router.push(`/missEmail/emailCompose`)

@@ -33,9 +33,9 @@ export default {
                             </div>
                         </div>    
                     </div>
-                    <div class="emailApp-main flex-col">
+                    <div class="email-main flex-col">
                         <email-filter v-if="!isComposing" @filtered="setFilter"></email-filter>
-                        <router-view class="emailApp animated bounceInUp" :emails="emailsToShow" :folder="requestedFolder"></router-view>
+                        <router-view class="animated bounceInUp" :emails="emailsToShow" :folder="requestedFolder"></router-view>
                     </div>
                 </div>
                 <email-user-msg></email-user-msg>
@@ -60,13 +60,13 @@ export default {
             selectedEmail: null,
             isComposing: false,
             requestedFolder: null,
-            
+
         }
     },
     methods: {
         setFilter(filterBy) {
             this.filterBy = filterBy
-            console.log('got filter, isRead?', this.filterBy.isRead);
+                // console.log('got filter, isRead?', this.filterBy.isRead);
 
         },
         selectEmail(emailId) {
@@ -95,7 +95,7 @@ export default {
                 })
         },
 
-        
+
 
     },
     computed: {
@@ -134,7 +134,7 @@ export default {
         })
         this.updateStats();
 
-        
+
     },
     components: {
         emailNav,

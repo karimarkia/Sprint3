@@ -9,11 +9,9 @@
 
 .nav-component {
     border: 2px solid #8d9db6;
-    
 }
 
 .nav-bar {
-
     flex-direction: column;
     position: fixed;
     background-color: #8d9db6;
@@ -44,7 +42,7 @@
     height: 100%;
 }
 
-.emailApp-main {
+.email-main {
     flex-grow: 1;
 }
 
@@ -67,7 +65,8 @@
 }
 
 .email-list {
-    padding: 0px
+    height: 100%;
+    padding: 0px;
 }
 
 .email-preview-header {

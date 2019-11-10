@@ -33,8 +33,8 @@ export default {
     data() {
         return {
             newEmail: null,
-            to: null,
-            subject: null
+            to: null
+                // subject: null
 
         }
     },
@@ -82,11 +82,13 @@ export default {
         emailService.getEmptyEmail()
             .then(email => {
                 this.newEmail = email;
+                console.log('this.newEmail is', this.newEmail);
+                if (this.$route.params.subject) {
+                    this.newEmail.to = 'myself';
+                    this.newEmail.subject = this.$route.params.subject;
+                    this.newEmail.body = this.$route.params.body;
+                }
+
             })
-    }
-    // mounted() {
-    //     console.log(this.$refs);
-    //     const inputTo = this.$refs.inputTo;
-    //     setTimeOut(() => inputTo.focus(), 0);
-    // },
+    },
 }

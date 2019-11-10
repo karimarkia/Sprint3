@@ -44,6 +44,10 @@
     transition: .3s;
 }
 
+/* .saveNote{
+    padding:0
+} */
+
 .new-note textarea {
     font-family: 'Roboto', sans-serif;
     font-size: 20px;
@@ -503,6 +507,9 @@ input.color-input {
     }
     .search input {
         width: 90vw;
+    }
+    .note-card>div {
+        display: flex;
     }
 }
 

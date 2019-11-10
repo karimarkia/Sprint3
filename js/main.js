@@ -17,10 +17,10 @@ var options = {
         <div class="wrapper flex-col spread">
             <app-header></app-header>
             <router-view></router-view>
-            <div>
+        
 
                 <footer-cmp></footer-cmp>
-            </div>
+        
         </div>
     `,
     // data() {}

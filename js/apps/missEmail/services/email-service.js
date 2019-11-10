@@ -15,50 +15,6 @@ export const emailService = {
 
 const STORAGE_KEY = 'MissEmails'
 
-// var gEmails = [{
-//     id: utilService.makeId(),
-//     from: 'ohad',
-//     to: 'ohad',
-//         subject: 'test',
-//         body: 'Laboris quis ad nulla veniam commodo tempor ipsum. Enim cupidatat deserunt elit ex do eu duis aliquip exercitation. Pariatur cupidatat ut Lorem pariatur occaecat commodo id ad anim excepteur ea.',
-//         isStarred: true,
-//         wasStarred: false,
-//         isSentByMe: false,
-//         wasSentByMe: false,
-//         isRead: false,
-//         isDeleted: false,
-//         sentAt: new Date().toTimeString().split(' ')[0]
-//     },
-//     {
-//         id: utilService.makeId(),
-//         from: 'ohad',
-//         to: 'david',
-//         subject: 'testing',
-//         body: 'Laboris quis ad nulla veniam commodo tempor ipsum. Enim cupidatat deserunt elit ex do eu duis aliquip exercitation. Pariatur cupidatat ut Lorem pariatur occaecat commodo id ad anim excepteur ea.',
-//         isStarred: true,
-//         wasStarred: false,
-//         isSentByMe: false,
-//         wasSentByMe: false,
-//         isRead: false,
-//         isDeleted: false,
-//         sentAt: new Date().toTimeString().split(' ')[0]
-//     },
-//     {
-//         id: utilService.makeId(),
-//         from: 'popo',
-//         to: 'momo',
-//         subject: 'nice!',
-//         body: 'Laboris quis ad nulla veniam commodo tempor ipsum. Enim cupidatat deserunt elit ex do eu duis aliquip exercitation. Pariatur cupidatat ut Lorem pariatur occaecat commodo id ad anim excepteur ea.',
-//         isStarred: false,
-//         wasStarred: false,
-//         isSentByMe: false,
-//         wasSentByMe: false,
-//         isRead: false,
-//         isDeleted: false,
-//         sentAt: new Date().toTimeString().split(' ')[0]
-//     },
-// ]
-
 function getEmails() {
     var emails = utilService.loadFromLocalStorage(STORAGE_KEY)
     if (!emails || emails.length === 0) {

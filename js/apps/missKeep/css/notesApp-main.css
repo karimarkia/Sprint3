@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700|Roboto:400,700');
+/* @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700|Roboto:400,700'); */
 
 .bcg {
     background-size: cover;
@@ -112,14 +112,10 @@
     flex-direction: column;
 }
 
-
-
 .note-card>div {
     display: flex;
     justify-content: space-between;
 }
-
-
 
 .note-card>div>i {
     font-size: 17px;
@@ -148,6 +144,8 @@
     -moz-box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.75);
     box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.75);
 }
+
+
 /* 
 .video-card {
     display: flex;
@@ -167,7 +165,6 @@
     -moz-box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.75);
     box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.75);
 } */
-
 
 .audio-card {
     justify-content: center;
@@ -191,7 +188,6 @@
     box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.75);
 }
 
-
 .audio-card>div>i {
     font-size: 17px;
 }
@@ -202,10 +198,10 @@
     margin-top: 50px;
 }
 
+
 /* .audio-div{
         margin-top: 15px;
     } */
-
 
 .image-card {
     justify-content: center;
@@ -259,10 +255,6 @@
     /* padding-top: 10px; */
 }
 
-
-
-
-
 .fa-youtube {
     font-size: 30px;
     margin: 5px;
@@ -315,7 +307,6 @@ input.color-input {
     border-radius: 15%;
     cursor: pointer;
     outline: 0;
-
 }
 
 .opt-btns {
@@ -339,7 +330,6 @@ input.color-input {
     cursor: pointer;
     border-radius: 15px;
 }
-
 
 .fa-map-pin {
     font-size: 22px;
@@ -368,12 +358,11 @@ input.color-input {
 
 .fade-enter,
 .fade-leave-to
-
 /* .fade-leave-active below version 2.1.8 */
-    {
+
+{
     opacity: 0;
 }
-
 
 .component-fade-enter-active,
 .component-fade-leave-active {
@@ -382,12 +371,11 @@ input.color-input {
 
 .component-fade-enter,
 .component-fade-leave-to
-
 /* .component-fade-leave-active below version 2.1.8 */
-    {
+
+{
     opacity: 0;
 }
-
 
 .modal {
     display: block;
@@ -407,11 +395,11 @@ input.color-input {
     /* Fallback color */
     background-color: rgba(299, 299, 299, 0.6);
     /* Black w/ opacity */
-
 }
 
 
 /* Modal Content/Box */
+
 .modal-content {
     background-color: #fefefe;
     margin: 15% auto;
@@ -441,7 +429,6 @@ input.color-input {
     font-family: 'Roboto', sans-serif;
     resize: none;
 }
-
 
 .close {
     cursor: pointer;
@@ -482,7 +469,6 @@ input.color-input {
     font-family: 'Roboto', sans-serif;
 }
 
-
 .fa-list {
     font-size: 25px;
     margin: 5px;
@@ -498,7 +484,6 @@ input.color-input {
     cursor: pointer;
 }
 
-
 .search input {
     width: 30vw;
     height: 30px;
@@ -510,24 +495,21 @@ input.color-input {
     margin-bottom: 20px;
 }
 
-
 @media (max-width: 608px) {
     .note-card {
         width: 90vw;
     }
-
     .new-note {
         width: 90vw;
     }
-
     .search input {
         width: 90vw;
     }
 }
 
 
-
 /* user msg */
+
 .user-msg {
     position: absolute;
     top: 0;
@@ -573,8 +555,6 @@ input.color-input {
 
 
 /* ---------helper------------- */
-
-
 
 .flex {
     display: flex;

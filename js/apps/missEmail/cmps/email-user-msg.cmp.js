@@ -4,16 +4,12 @@ import { eventBus } from '../../../services/event-bus-service.js';
 
 export default {
     template: `
-        <section class="user-msg">
+        <section class="email-user-msg">
             <div class="email-preview-header flex">
-                Status:
-                <transition name="fade">
-                    <span v-if="msg">{{msg.txt}}</span>
-                </transition>
+                Status:<span class="animated fadeIn" v-if="msg">{{msg.txt}}</span>     
             </div>
         </section>
     `,
-    // <section class="user-msg" :class="msg.type">
     data() {
         return {
             msg: null

@@ -25,7 +25,7 @@ export default {
             <div class="todos-section"> 
                 <div v-for="(todo,i) in note.data.todos" class="todo">
                     <input type="checkbox" @click="updateCheckbox(note ,i)" v-model="todo.done">
-                    <p>{{todo.text}}</p>
+                    <p :class="{'strike-through': todo.done}">{{todo.text}}</p>
                 </div>
             </div>
             <transition name="fade">
@@ -35,7 +35,7 @@ export default {
          
         </div>
         <transition name="fade">
-            <modal  :note="note" v-if="displayModal" @closeModal="displayModal=false" @updateTodo="updateTodo"></modal>
+            <modal :note="note" v-if="displayModal" @closeModal="displayModal=false" @updateTodo="updateTodo"></modal>
         </transition>
 
     </div>

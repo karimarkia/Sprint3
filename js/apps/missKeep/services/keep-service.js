@@ -113,7 +113,6 @@ function getNotes() {
         notes = gNotes
         utilService.saveToStorage(STORAGE_KEY, gNotes)
     }
-    // utilService.saveToStorage(STORAGE_KEY, gNotes);
     return Promise.resolve(gNotes);
 
 }

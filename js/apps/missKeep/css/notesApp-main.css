@@ -627,3 +627,7 @@ input.color-input {
     }
 
 }
+
+.strike-through{
+    text-decoration: line-through;
+}

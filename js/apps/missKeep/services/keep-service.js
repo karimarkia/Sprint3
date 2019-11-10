@@ -49,6 +49,26 @@ var gNotes = [{
             headline: 'fsefef',
             todos: [{
                 num: 1,
+                done: true,
+                text: 'ewfewfwefe'
+            }, 
+            {
+                num: 1,
+                done: false,
+                text: 'ewfewfwefe'
+            }, 
+            {
+                num: 1,
+                done: false,
+                text: 'ewfewfwefe'
+            }, 
+            {
+                num: 1,
+                done: true,
+                text: 'ewfewfwefe'
+            }, 
+            {
+                num: 1,
                 done: false,
                 text: 'ewfewfwefe'
             }, ]
@@ -61,7 +81,6 @@ var gNotes = [{
 
 ]
 
-// window.note = gNotes
 
 function emptyNote() {
     return {

@@ -105,13 +105,13 @@ a {
     margin: 10px;
 }
 
-.user-msg {
+/* .user-msg {
     background-color: lightgray;
     padding: 20px;
     position: absolute;
     top: 0;
     right: 0;
-}
+} */
 
 .user-msg button {
     float: right;

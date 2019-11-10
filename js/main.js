@@ -3,7 +3,7 @@
 
 import './services/event-bus-service.js'
 import appHeader from './cmps/app-header.cmp.js';
-import footerCmp from './cmps/footer-cmp.js';
+// import footerCmp from './cmps/footer-cmp.js';
 import theRouter from './routes.js'
 
 
@@ -19,14 +19,14 @@ var options = {
             <router-view></router-view>
         
 
-                <footer-cmp></footer-cmp>
+                <!-- <footer-cmp></footer-cmp> -->
         
         </div>
     `,
     // data() {}
     components: {
         appHeader,
-        footerCmp
+        // footerCmp
     }
 }
 

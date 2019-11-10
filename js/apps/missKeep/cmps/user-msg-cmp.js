@@ -1,8 +1,11 @@
-import { eventBus, EVENT_SHOW_MSG }from '../services/event-bus.js'
+import {
+    eventBus,
+    EVENT_SHOW_MSG
+} from '../services/event-bus.js'
 
 export default {
-    
-    template:`
+
+    template: `
     <section v-if="showMsg" class="user-msg flex justify-center align-center">
         <div :class="msgType" >
             <div class="flex">
@@ -17,42 +20,41 @@ export default {
         
     </section>
     `,
-     data() {
+    data() {
         return {
             showMsg: false,
             msgStr: '',
-            msgType:'',
-            
-            
+            msgType: '',
+
         }
     },
     created() {
-        eventBus.$on(EVENT_SHOW_MSG,(msg,type) => {
-            // setTimeout(() => {
-            
-            this.showMsg = true
-            this.msgType = type
+        eventBus.$on(EVENT_SHOW_MSG, (msg, type) => {
+                this.showMsg = true
+                this.msgType = type
                 this.msgStr = msg;
-
-            // }, 3000);
+                setTimeout(() => {
+                    this.showMsg = false
+                }, 1500);
         })
     },
-    methods:{
+    methods: {
         closeMsg() {
-            this.showMsg =!this.showMsg
-        }
+            this.showMsg = !this.showMsg
+        },
     },
-   
-    computed :{
-        iconClass(){
-            var iconClass = this.msgType === 'success' ?'fas fa-check':'fas fa-times';
+
+    computed: {
+        iconClass() {
+            var iconClass = this.msgType === 'success' ? 'fas fa-check' : 'fas fa-times';
             return iconClass;
         },
-        btnColor(){
-            return this.msgType === 'success' ?'green':'red';
-             
+        btnColor() {
+            return this.msgType === 'success' ? 'green' : 'red';
+
         }
+        
     }
 
-    
+
 }

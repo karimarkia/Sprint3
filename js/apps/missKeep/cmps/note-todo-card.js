@@ -58,7 +58,6 @@ export default {
         },
         deleteNote(noteid) {
             deleteNote(noteid)
-            this.displayCard = 'none';
             eventBus.$emit(EVENT_SHOW_MSG,'Todo Delete','error')
         },
         removePin(note) {

@@ -3,7 +3,7 @@ export default {
     template: `   
         <div class="opt-btns" @click.stop=''>
             <button  @click="$emit('addNote')">save note</button>
-            <input class="saveNote" type="color" class="color-input" :value="color" @change="$emit('changeColor')" ref="color" @focus="$emit('colorFocus')"  @blur="$emit('colorblur')"/>
+            <input type="color" class="color-input" :value="color" @change="$emit('changeColor')" ref="color" @focus="$emit('colorFocus')"  @blur="$emit('colorblur')"/>
             <i class="fas fa-map-pin" @click="$emit('pinNote')" :style="{ color: pinColor}"></i>
         </div>
 `,

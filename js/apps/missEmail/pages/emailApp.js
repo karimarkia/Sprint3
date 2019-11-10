@@ -10,14 +10,10 @@ import {
 import emailNav from '../cmps/email-nav.cmp.js';
 import emailFilter from '../cmps/email-filter.cmp.js';
 import emailDetails from '../cmps/email-details.cmp.js';
-// import emailPreview from '../cmps/email-preview.cmp.js';
 import emailUserMsg from '../cmps/email-user-msg.cmp.js';
-// import emailCompose from '../cmps/email-compose.cmp.js';
-
 
 export default {
     name: 'emailApp',
-    // props: ['folder'],
     template: `
         <section>
             <div class="body-container flex-col">
@@ -28,13 +24,16 @@ export default {
                             <emailNav></emailNav>
                         </div>
                         <div>
-                            <div class="stats">
-                                <progress :value="showStatsPercentage" max="100"></progress>
-                            </div>
+                            
                         </div>    
                     </div>
                     <div class="email-main flex-col">
-                        <email-filter v-if="!isComposing" @filtered="setFilter"></email-filter>
+                        <div>
+                            <email-filter v-if="!isComposing" @filtered="setFilter"></email-filter>
+                            <div class="right"> 
+                            <progress :value="showStatsPercentage" max="100"></progress>
+                            </div>
+                        </div>
                         <router-view class="animated bounceInUp" :emails="emailsToShow" :folder="requestedFolder"></router-view>
                     </div>
                 </div>

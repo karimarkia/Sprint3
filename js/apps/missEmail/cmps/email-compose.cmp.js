@@ -28,14 +28,10 @@ export default {
                 </div>
             </section>
             `,
-    // <span class="email-compose-field">Body:</span>
-    // <button class="btn"><img class="compose-commands" src="/img/send.png" alt="" /></button>
     data() {
         return {
             newEmail: null,
             to: null
-                // subject: null
-
         }
     },
     methods: {
@@ -72,7 +68,6 @@ export default {
                         .then(email => {
                             this.newEmail = email;
                             this.$router.push('emailList')
-                                // this.$emit('doneComposing');
                         })
                 })
         },

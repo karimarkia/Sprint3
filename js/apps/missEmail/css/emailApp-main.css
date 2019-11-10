@@ -35,8 +35,8 @@ textarea {
 }
 
 progress {
-    width: 80px;
-    margin-top: 10px;
+    width: 100px;
+    margin-right: 10px;
 }
 
 .search-field {
@@ -73,7 +73,7 @@ progress {
 }
 
 .email-details-container {
-    background-color: lightyellow;
+    background-color: #667292;
     border-radius: 4px;
     padding: 10px;
 }

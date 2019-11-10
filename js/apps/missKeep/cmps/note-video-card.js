@@ -7,6 +7,9 @@ import {
     updateNote,
     copyNote
 } from '../services/keep-service.js'
+
+
+
 export default {
     name: 'videoCmp',
     props: ['note'],
@@ -19,7 +22,7 @@ export default {
                 </div>
             
                 <transition name="fade">
-                <card-btns v-show="showBtns" :note="note" :color="color" @deleteNote="deleteNote(note.id)" @addPin="addPin(note)" @changeColor="changeColor">
+                <card-btns v-show="showBtns" :note="note" @copyNote="copyNote(note)" @deleteNote="deleteNote(note.id)" @addPin="addPin(note)" @changeColor="changeColor">
                 </card-btns>
                 </transition>
         </div>
@@ -79,5 +82,10 @@ export default {
             copyNote(noteid)
         }
 
+
+
+    },
+    components: {
+        cardBtns
     },
 }

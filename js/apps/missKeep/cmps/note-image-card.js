@@ -20,7 +20,7 @@ export default {
                 </div>
             
                 <transition name="fade">
-                <card-btns v-show="showBtns" :note="note" :color="color" @deleteNote="deleteNote(note.id)" @addPin="addPin(note)" @changeColor="changeColor">
+                <card-btns v-show="showBtns" :note="note"  @deleteNote="deleteNote(note.id)" @addPin="addPin(note)" @changeColor="changeColor" @copyNote="copyNote(note)">
                 </card-btns>
                 </transition>
         </div>
@@ -41,7 +41,6 @@ export default {
     },
     data() {
         return {
-            order: false,
             showBtns: false,
             displayCard: 'flex',
             displayModal: false,

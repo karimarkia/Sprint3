@@ -97,17 +97,19 @@ function emptyNote() {
 }
 
 function addNote(note) {
-    utilService.saveToStorage(STORAGE_KEY, note);
     gNotes.unshift(note)
+    console.log('the updated gNotes now looks like this: ', gNotes)
+    utilService.saveToStorage(STORAGE_KEY, gNotes);
 }
 
 
 
 function getNotes() {
     var notes = utilService.loadFromLocalStorage(STORAGE_KEY)
-    
+
 
     if (!notes || notes.length === 0) {
+        console.log('the notes service got here')
         notes = gNotes
         utilService.saveToStorage(STORAGE_KEY, gNotes)
     }
@@ -121,7 +123,7 @@ function getNotes() {
 export function deleteNote(noteid) {
     const noteToDelet = getNoteIdx(noteid)
     gNotes.splice(noteToDelet, 1)
-    utilService.saveToStorage(STORAGE_KEY, noteid);
+    utilService.saveToStorage(STORAGE_KEY, gNotes);
 }
 
 export function copyNote(note) {

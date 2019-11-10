@@ -3,7 +3,7 @@
 export default {
     name: 'appHeader',
     template: `
-        <nav>
+        <section>
             <div class="header flex spread">
             <img id="logo" src="img/logo.png" alt="">
                 <ul ref="navbar" class="nav-bar flex wrap clean">
@@ -17,7 +17,7 @@ export default {
                     <div><img class="hamburger" @click="toggleMenu('.nav-bar')" src="img/hamburger.png"></div>
                 </div>           
             </div>
-        </nav> 
+        </section> 
     `,
     methods: {
         toggleMenu(menu) {

@@ -9,7 +9,7 @@ export default {
     `,
     data() {
         return {
-            appTitle: 'This is My Nice & Welcomingggggggggggg Page !',
+            appTitle: 'This is My Nice & Welcoming Page !',
         }
     }
 }

@@ -1,0 +1,231 @@
+body {
+    height: 100vh;
+    /* background-color: #F6E4F6; */
+}
+
+h1 {
+    font-size: 30px;
+}
+
+input {
+    padding: 5px;
+}
+
+button {
+    border-radius: 4px;
+    border: none;
+    margin: 10px;
+    padding: 5px;
+}
+
+.book-review {
+    height: 20px;
+}
+
+.back {
+    height: 50px;
+}
+
+.welcome {
+    font-size: 60px;
+    margin: 5px;
+}
+
+.heading {
+    display: inline-block;
+    font-size: 72px;
+    margin-left: 20px;
+}
+
+.container {
+    background-color: #C98986;
+    border-radius: 5px;
+    /* padding: 10px; */
+    margin: 5px;
+}
+
+
+/* .body-component {
+    background-color: #F4F4F4;
+    margin: 10px;
+    border-radius: 5px;
+    padding: 10px;
+} */
+
+.about-internal-component {
+    background-color: #F6BDD1;
+    margin: 10px;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.search-criteria {
+    margin: 10px;
+    padding: 10px;
+    border: 2px solid #8B575C;
+    border-radius: 4px;
+}
+
+.search-filter {
+    /* width: 90%; */
+    border: none;
+    margin: 10px;
+    border-radius: 4px;
+    padding: 10px;
+    border-bottom: 2px solid lightgray;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+.book {
+    width: 200px;
+    border-radius: 4px;
+    background-color: #F4F4F4;
+    box-shadow: 10px 10px 5px -10px rgba(0, 0, 0, 0.75);
+    margin: 10px;
+    padding: 10px;
+}
+
+.book-details-container {
+    margin: 0 auto;
+    top: 40px;
+    left: 8%;
+    width: 80%;
+    height: 80%;
+    background-color: #8B575C;
+    box-shadow: 10px 10px 5px -10px rgba(0, 0, 0, 0.75);
+    border-radius: 4px;
+    padding: 20px;
+}
+
+.pagination {
+    margin: 10px;
+}
+
+.user-msg {
+    background-color: lightgray;
+    padding: 20px;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.user-msg button {
+    float: right;
+}
+
+.user-msg.success {
+    background-color: lightgreen;
+}
+
+.user-msg.error {
+    background-color: lightcoral;
+}
+
+.book-img {
+    width: 100%;
+}
+
+.book-pic {
+    height: 100%;
+    margin-right: 20px;
+}
+
+.me-pic {
+    width: 200px;
+}
+
+.description {
+    margin: 20px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100ch;
+}
+
+.review-container {
+    background-color: #F6E4F6;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.review-heading {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.review-item {
+    border: 2px solid #F4F4F4;
+    border-radius: 4px;
+    padding-left: 10px;
+    margin-bottom: 5px;
+}
+
+.expensive {
+    color: red;
+}
+
+.cheap {
+    color: green;
+}
+
+.categories {
+    font-weight: bold;
+}
+
+
+/* helpers */
+
+.flex {
+    display: flex;
+}
+
+
+/* .flex-col {
+    display: flex;
+    flex-direction: column;
+} */
+
+.wrap {
+    flex-wrap: wrap;
+}
+
+.spread {
+    justify-content: space-between;
+}
+
+.centered {
+    justify-content: center;
+    align-items: center;
+}
+
+.end {
+    justify-content: flex-end;
+}
+
+.clean {
+    list-style: none;
+}
+
+.hidden {
+    display: none;
+}
+
+.visible {
+    display: block;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.underlined {
+    text-decoration: underline;
+}
+
+.center {
+    text-align: center;
+}

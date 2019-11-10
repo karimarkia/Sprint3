@@ -14,15 +14,12 @@ var options = {
     name: 'AppSus',
     el: '.app-sus',
     template: `
-        <div class="flex-col spread">
+        <div class="wrapper flex-col spread">
             <app-header></app-header>
-            <router-view></router-view>
-        
-
-                <!-- <footer-cmp></footer-cmp> -->
-        
+            <router-view></router-view> 
         </div>
     `,
+    // <footer-cmp></footer-cmp>
     // data() {}
     components: {
         appHeader,

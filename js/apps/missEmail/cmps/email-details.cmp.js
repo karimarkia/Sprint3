@@ -31,13 +31,6 @@ export default {
                 </div>
             </section>
             `,
-    // <img class="compose-commands" :class="{'delete-btn': !currEmail.isDeleted, 'undelete-btn': currEmail.isDeleted}" @click="deleteEmail(currEmail.id)" src="" alt="" />
-    // <router-link :to="emailList">details</router-link>
-    // <button @click="closeDetails">CLOSE</button>
-    // <div class="pagination flex end">
-    //     <button @click="getAdjacentEmail('prev')">Prev Email</button>
-    //     <button @click="getAdjacentEmail('next')">Next Email</button>
-    // </div>
     data() {
         return {
             email: null,

@@ -9,7 +9,7 @@ export default {
             <section @click.stop="extendPreview">
                 <li v-if="email" class="email clean">
                     <div :class="{'extended-preview': isExtendPreview}" class="short-preview flex-col">
-                        <div v-if="!isExtendPreview" class="short-preview flex">
+                        <div v-if="!isExtendPreview" class="flex">
                             <div class="email-preview-icons flex">
                                 <img class="preview-commands" :src="readType" alt="" />
                                 <img class="preview-commands" @click.stop="makeStarred(email.id)" :src="starType" alt="" />
@@ -22,20 +22,20 @@ export default {
                         </div>
                         <div v-if="isExtendPreview" classs="flex-col">
                             <div class="flex spread">
-                                <div class="large-subject">{{email.subject}}</div>
+                                <div class="large-subject underlined">{{email.subject}}</div>
                                 <div class="flex">
                                     <img class="preview-commands" @click="deleteEmail(email.id)" :src="trashType" alt="" />
                                     <router-link :to="emailURL"><img class="preview-commands" src="/img/preview-details.png" alt="" /></router-link>
                                 </div>
                             </div>   
-                            <div>{{email.from}}</div>
+                            <div>From: {{email.from}}</div>
+                            </br>
                             <div>{{shortBody}}</div>
                         </div>
                     </div>
                 </li>
             </section>
             `,
-    // <button @click="selectEmail(email.id)">Expand</button>
     data() {
         return {
             isExtendPreview: false,

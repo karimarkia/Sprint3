@@ -48,6 +48,7 @@ const myRoutes = [{
             },
             {
                 path: 'emailCompose',
+                name: 'compose',
                 component: emailCompose
             },
             {

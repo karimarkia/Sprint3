@@ -32,6 +32,10 @@
     justify-content: flex-end;
 }
 
+.right {
+    float: right;
+}
+
 .clean {
     list-style: none;
 }

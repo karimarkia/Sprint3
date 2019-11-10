@@ -10,27 +10,77 @@ export default {
     emptyTodo
 }
 
-var gNotes = [
-    {
-        "id": utilService.makeId(),
-        'date': utilService.getCurrentTime(),
-        'type': 'textComp',
+var gNotes = [{
+        id: utilService.makeId(),
+        date: utilService.getCurrentTime(),
+        type: 'textComp',
         text: {
-            headline: 'asdasd',
-            "body": 'asdasd',
+            headline: 'learn Vue',
+            body: 'next weekEnd',
         },
-        'color': null,
+        color: '#ffffff',
         order: 0
-    }
+    },
+    {
+        id: utilService.makeId(),
+        date: utilService.getCurrentTime(),
+        type: 'textComp',
+        text: {
+            headline: 'going to meetUp in tel aviv ',
+            body: 'on sunday at 18:00',
+        },
+        color: '#ffffff',
+        order: -1
+    },
+    {
+        id: utilService.makeId(),
+        date: utilService.getCurrentTime(),
+        type: 'textComp',
+        text: {
+            headline: 'shopping',
+            body: 'on rami levi',
+        },
+        color: '#ff0000',
+        order: 0
+    },
+    {
+        id: utilService.makeId(),
+        date: utilService.getCurrentTime(),
+        type: 'textComp',
+        text: {
+            headline: 'buy a new car ',
+            body: 'asdasd',
+        },
+        color: '#ff5555',
+        order: 0
+    },
+    // {
+    //     id: utilService.makeId(),
+    //     date: utilService.getCurrentTime(),
+    //     type: 'todo',
+    //     data: {
+    //         headline: 'shpping list',
+    //         todos: [{
+    //                 num: 1,
+    //                 done: false,
+    //                 text: 'but some beer'
+    //             },
+    //             {
+    //                 num: 2,
+    //                 done: true,
+    //                 text: 'i dont know'
+    //             },
+
+    //         ]
+    //     },
+    //     color: '#ff5555',
+    //     order: -1,
+    //     numOfTodos: 2
+    // }
 
 ]
-// var gNotes = utilService.loadFromLocalStorage(STORAGE_KEY)
-
-
 
 // window.note = gNotes
-
-
 
 function emptyNote() {
     return {
@@ -54,12 +104,12 @@ function addNote(note) {
 
 
 function getNotes() {
-    var note = utilService.loadFromLocalStorage(STORAGE_KEY)
-    console.log(note);
+    var notes = utilService.loadFromLocalStorage(STORAGE_KEY)
     
-    if (!note || note.length === 0) {
-        note=gNotes
-        utilService.saveToStorage(STORAGE_KEY, note)
+
+    if (!notes || notes.length === 0) {
+        notes = gNotes
+        utilService.saveToStorage(STORAGE_KEY, gNotes)
     }
     // utilService.saveToStorage(STORAGE_KEY, gNotes);
     return Promise.resolve(gNotes);
@@ -74,10 +124,10 @@ export function deleteNote(noteid) {
     utilService.saveToStorage(STORAGE_KEY, noteid);
 }
 
-export function copyNote(noteid) {
+export function copyNote(note) {
     // console.log(noteid);
-    gNotes.unshift(noteid)
-    utilService.saveToStorage(STORAGE_KEY, noteid);
+    gNotes.unshift(note)
+    utilService.saveToStorage(STORAGE_KEY, gNotes);
 }
 
 function getNoteIdx(noteid) {

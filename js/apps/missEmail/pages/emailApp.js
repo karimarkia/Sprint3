@@ -60,8 +60,6 @@ export default {
     methods: {
         setFilter(filterBy) {
             this.filterBy = filterBy
-                // console.log('got filter, isRead?', this.filterBy.isRead);
-
         },
         selectEmail(emailId) {
             console.log('the emailID is: ', emailId)
@@ -88,13 +86,9 @@ export default {
                     this.stats.unread = stats.unread
                 })
         },
-
-
-
     },
     computed: {
         emailsToShow() {
-            // if (!this.filterBy.string.length) return this.emails;
             if (this.filterBy.isRead) {
                 return this.emails.filter(email => {
                     return (!email.isRead)
@@ -112,7 +106,6 @@ export default {
         }
     },
     created() {
-        // console.log('emailApp: this is the var pushed by the routerlink: ', this.$route.params.folder)
         emailService.getEmails()
             .then(emails => {
                 this.emails = emails

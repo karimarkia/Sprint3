@@ -44,9 +44,6 @@ export default {
             let emailId = this.currEmail.id;
             this.nextEmailId = emailService.getPrevNextEmailId(emailId, 'next');
             this.prevEmailId = emailService.getPrevNextEmailId(emailId, 'prev');
-            // console.log('the current email ID is:', emailId)
-            // console.log('the next email ID is: ', this.nextEmailId)
-            // console.log('the prev email ID is: ', this.prevEmailId)
         },
         deleteEmail(emailId) {
             emailService.modifyEmailProperty(this.currEmail.id, 'isDeleted')
@@ -83,8 +80,12 @@ export default {
             let newNote = notesService.emptyNote()
             newNote.text.headline = email.subject;
             newNote.text.body = email.body;
-            console.log('this is the note that is being sent: ', newNote)
-            notesService.addNote(newNote)
+            notesService.addNote(newNote);
+            const msg = {
+                txt: `email with ID: '${email.id}' has been made into a note.`,
+                type: 'success'
+            }
+            eventBus.$emit('show-msg', msg);
         },
         closeDetails() {
             this.$router.push('emailList')
@@ -131,7 +132,6 @@ export default {
     },
     watch: {
         '$route.params.id' () {
-            // console.log('Route param: "id" changed');
             this.$router.push('/missEmail/emailList')
         }
     }

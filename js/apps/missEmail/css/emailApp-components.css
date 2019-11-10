@@ -51,6 +51,7 @@
 }
 
 .email-side-nav {
+    height: 85vh;
     background-color: #4D728C;
     margin-top: 10px;
     margin-right: 10px;
@@ -74,14 +75,29 @@
 }
 
 .email-preview-header {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    border: 2px solid lightgray;
+    background-color: white;
+    padding: 5px;
+    border-radius: 2px;
+}
+
+.sorting-header {
+    width: 100%;
     border: 2px solid lightgray;
     padding: 5px;
     border-radius: 2px;
-    margin: 2px;
 }
 
-.email-preview-header-spacer {
+.sorting-header-spacer {
     width: 100px;
+}
+
+.sorting-header-txt {
+    margin: 2px;
+    width: 100%;
 }
 
 .short-preview {
@@ -91,16 +107,9 @@
     margin: 2px;
 }
 
-.email-preview-header-txt {
-    margin: 2px;
-    width: 100%;
-    /* justify-content: space-between; */
-}
-
 .email-preview-txt {
     margin: 10px;
     width: 100%;
-    /* justify-content: space-between; */
 }
 
 .extended-preview {
@@ -187,6 +196,7 @@
         flex-direction: column
     }
     .email-side-nav {
+        height: 10vh;
         margin-top: 5px;
         margin-bottom: 5px;
         padding-top: 5px;

@@ -4,9 +4,9 @@ export default {
     name: 'emails-preview-header',
     template: `
         <section class="nav-side-bar flex-col">
-            <div class="email-preview-header flex">
-                <div class="email-preview-header-spacer"></div>
-                <div class="email-preview-header-txt flex spread"> 
+            <div class="sorting-header flex">
+                <div class="sorting-header-spacer"></div>
+                <div class="sorting-header-txt flex spread"> 
                     <div @click="setSort('from')">From</div>
                     <div @click="setSort('subject')">Subject</div>
                     <div @click="setSort('sentAt')">Received</div>

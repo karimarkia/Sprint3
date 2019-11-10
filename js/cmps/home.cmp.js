@@ -4,12 +4,12 @@ export default {
     name: 'home',
     template: `
         <section class="home-container">
-            <p class="welcome">{{appTitle}}</p>
+            <img class="cover-img" src="../img/img_74002_11981.png">
         </section>
     `,
     data() {
         return {
-            appTitle: 'This is My Nice & Welcomingggggggggggg Page !',
+            
         }
     }
 }

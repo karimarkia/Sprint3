@@ -30,3 +30,18 @@ footer{
 
     
 }
+
+.home-container{
+    margin: 200px auto;
+    
+}
+
+
+.cover-img{
+    background-size: cover;
+    background-position: center;
+    width: 200px;
+    height: 200px;
+    background-repeat: no-repeat;
+   
+}

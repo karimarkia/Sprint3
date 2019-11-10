@@ -5,7 +5,7 @@ export default {
     template: `
         <section class="email-filter flex spread centered">
                 <input class="search-field" type="text" placeholder="search this folder" v-model="filterBy.string" />
-                <button class="email-filter-read-btn" :class="{'email-filter-read-btn-on': filterBy.isRead}" @click.stop="showUnread">Show Unread</button>
+                <button class="email-filter-read-btn" :class="{'email-filter-read-btn-on': filterBy.isRead}" @click.stop="showUnread">Unread</button>
         </section>
         `,
     data() {

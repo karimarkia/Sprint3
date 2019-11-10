@@ -19,7 +19,7 @@ export default {
     name: 'emailApp',
     // props: ['folder'],
     template: `
-        <section class="missEmailApp">
+        <section>
             <div class="body-container flex-col">
                 <div class="email-app-body flex">
                     <div class="email-side-nav flex-col">

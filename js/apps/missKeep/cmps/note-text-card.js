@@ -34,7 +34,6 @@ export default {
        `,
     data() {
         return {
-
             showBtns: false,
             displayCard: 'flex',
             displayModal: false,
@@ -51,7 +50,6 @@ export default {
         },
         deleteNote(noteid) {
             deleteNote(noteid)
-            // this.displayCard = 'none';
             eventBus.$emit(EVENT_SHOW_MSG,'Note Delete','error')
         },
         removePin(note) {
@@ -74,12 +72,13 @@ export default {
             copyNote(noteid)
         },
         sendToMail(note) {
+            console.log(note);
             setTimeout(() => {
-                this.$router.push(`/email`)
+                this.$router.push(`/missEmail/emailCompose`)
             }, 1000)
             setTimeout(() => {
                 eventBus.$emit('noteToMessage', note)
-            }, 1600)
+            }, 1000)
         }
 
     },

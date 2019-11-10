@@ -23,7 +23,7 @@
 }
 
 .new-note {
-    margin-top: 100px;
+    margin-top: 55px;
     margin-bottom: 50px;
     display: flex;
     height: 50px;
@@ -71,7 +71,7 @@
 }
 
 .notes-board {
-    margin-bottom: 50px;
+    margin-bottom: 30px;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
     justify-items: center;

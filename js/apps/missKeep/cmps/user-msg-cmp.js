@@ -11,7 +11,6 @@ export default {
             <h2>success</h2>
                     <p>{{msgStr}}</p>
             </div>
-                    
             </div>
            <button :style="{color:btnColor}"  @click="closeMsg" class="fas fa-times-circle"></button>
         </div>
@@ -29,9 +28,13 @@ export default {
     },
     created() {
         eventBus.$on(EVENT_SHOW_MSG,(msg,type) => {
+            // setTimeout(() => {
+            
             this.showMsg = true
-            this.msgStr = msg;
             this.msgType = type
+                this.msgStr = msg;
+
+            // }, 3000);
         })
     },
     methods:{

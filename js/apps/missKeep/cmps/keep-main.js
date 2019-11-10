@@ -31,7 +31,7 @@ export default {
     mounted() {
 
     },
-    methods: {    
+    methods: {
         setFilter(filterBy) {
             // console.log('Parent got filter:', filterBy);
             this.filterBy = filterBy
@@ -43,7 +43,8 @@ export default {
                 return this.notes;
             var regex = new RegExp(`${this.filterBy.byName}`, 'i');
             return this.notes.filter(note =>
-                regex.test(note.text.headline)
+                (note.data) ? regex.test(note.data.headline) : regex.test(note.text.headline)
+                
             )
         }
 
@@ -62,5 +63,5 @@ export default {
         searchFilter,
         userMsg
     },
-  
+
 }

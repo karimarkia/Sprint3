@@ -1,7 +1,11 @@
 'use strict'
 
-import { emailService } from '../services/email-service.js';
-import { eventBus } from '../../../services/event-bus-service.js'
+import {
+    emailService
+} from '../services/email-service.js';
+import {
+    eventBus
+} from '../../../services/event-bus-service.js'
 
 import emailNav from '../cmps/email-nav.cmp.js';
 import emailFilter from '../cmps/email-filter.cmp.js';
@@ -51,7 +55,8 @@ export default {
             isDetailsUp: false,
             selectedEmail: null,
             isComposing: false,
-            requestedFolder: null
+            requestedFolder: null,
+            
         }
     },
     methods: {
@@ -84,7 +89,10 @@ export default {
                     this.stats.total = stats.total;
                     this.stats.unread = stats.unread
                 })
-        }
+        },
+
+        
+
     },
     computed: {
         emailsToShow() {
@@ -121,6 +129,8 @@ export default {
             this.updateStats()
         })
         this.updateStats();
+
+        
     },
     components: {
         emailNav,

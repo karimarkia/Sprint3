@@ -15,35 +15,12 @@ var gNotes = [{
         date: utilService.getCurrentTime(),
         type: 'textComp',
         text: {
-            headline: 'learn Vue',
-            body: 'next weekEnd',
+            headline: 'buy a new car ',
+            body: 'asdasd',
         },
-        color: '#ffffff',
+        color: '#ff5555',
         order: 0
-    },
-    {
-        id: utilService.makeId(),
-        date: utilService.getCurrentTime(),
-        type: 'textComp',
-        text: {
-            headline: 'going to meetUp in tel aviv ',
-            body: 'on sunday at 18:00',
-        },
-        color: '#ffffff',
-        order: -1
-    },
-    {
-        id: utilService.makeId(),
-        date: utilService.getCurrentTime(),
-        type: 'textComp',
-        text: {
-            headline: 'shopping',
-            body: 'on rami levi',
-        },
-        color: '#ff0000',
-        order: 0
-    },
-    {
+    }, {
         id: utilService.makeId(),
         date: utilService.getCurrentTime(),
         type: 'textComp',
@@ -51,32 +28,36 @@ var gNotes = [{
             headline: 'buy a new car ',
             body: 'asdasd',
         },
-        color: '#ff5555',
+        color: '#ff5587',
+        order: 0
+    }, {
+        id: utilService.makeId(),
+        date: utilService.getCurrentTime(),
+        type: 'textComp',
+        text: {
+            headline: 'buy a new car ',
+            body: 'asdasd',
+        },
+        color: '#ff5531',
         order: 0
     },
-    // {
-    //     id: utilService.makeId(),
-    //     date: utilService.getCurrentTime(),
-    //     type: 'todo',
-    //     data: {
-    //         headline: 'shpping list',
-    //         todos: [{
-    //                 num: 1,
-    //                 done: false,
-    //                 text: 'but some beer'
-    //             },
-    //             {
-    //                 num: 2,
-    //                 done: true,
-    //                 text: 'i dont know'
-    //             },
+    {
+        id: utilService.makeId(),
+        date: utilService.getCurrentTime(),
+        type: 'todo',
+        data: {
+            headline: 'fsefef',
+            todos: [{
+                num: 1,
+                done: false,
+                text: 'ewfewfwefe'
+            }, ]
+        },
+        color: '#ff9555',
+        order: false,
+        numOfTodos: 1
 
-    //         ]
-    //     },
-    //     color: '#ff5555',
-    //     order: -1,
-    //     numOfTodos: 2
-    // }
+    }
 
 ]
 
@@ -97,20 +78,20 @@ function emptyNote() {
 }
 
 function addNote(note) {
-    utilService.saveToStorage(STORAGE_KEY, note);
     gNotes.unshift(note)
+    utilService.saveToStorage(STORAGE_KEY, note);
 }
 
 
 
 function getNotes() {
-    var notes = utilService.loadFromLocalStorage(STORAGE_KEY)
-    
+    // var notes = utilService.loadFromLocalStorage(STORAGE_KEY)
 
-    if (!notes || notes.length === 0) {
-        notes = gNotes
-        utilService.saveToStorage(STORAGE_KEY, gNotes)
-    }
+
+    // if (!notes || notes.length === 0) {
+    //     notes = gNotes
+    //     utilService.saveToStorage(STORAGE_KEY, gNotes)
+    // }
     // utilService.saveToStorage(STORAGE_KEY, gNotes);
     return Promise.resolve(gNotes);
 
@@ -125,7 +106,6 @@ export function deleteNote(noteid) {
 }
 
 export function copyNote(note) {
-    // console.log(noteid);
     gNotes.unshift(note)
     utilService.saveToStorage(STORAGE_KEY, gNotes);
 }
@@ -186,3 +166,37 @@ function emptyTodo() {
     }
 
 }
+
+
+//     id: utilService.makeId(),
+//     date: utilService.getCurrentTime(),
+//     type: 'textComp',
+//     text: {
+//         headline: 'learn Vue',
+//         body: 'next weekEnd',
+//     },
+//     color: '#ffffff',
+//     order: 0
+// },
+// {
+//     id: utilService.makeId(),
+//     date: utilService.getCurrentTime(),
+//     type: 'textComp',
+//     text: {
+//         headline: 'going to meetUp in tel aviv ',
+//         body: 'on sunday at 18:00',
+//     },
+//     color: '#ffffff',
+//     order: -1
+// },
+// {
+//     id: utilService.makeId(),
+//     date: utilService.getCurrentTime(),
+//     type: 'textComp',
+//     text: {
+//         headline: 'shopping',
+//         body: 'in rami levi',
+//     },
+//     color: '#ff0000',
+//     order: 0
+// },

@@ -2,7 +2,7 @@ export default {
     props: [],
     template: `   
         <div class="search">
-        <input type="text" placeholder="Srearch by Name" v-model="filterBy.byName" />
+        <input type="text" placeholder="Search..." v-model="filterBy.byName" />
         </div>
         `
     ,

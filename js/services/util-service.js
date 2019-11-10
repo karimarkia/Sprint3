@@ -10,11 +10,8 @@ export default {
 }
 
 function loadFromLocalStorage(key) {
-    console.log('got here from the KEEP app');
-
     const json = localStorage.getItem(key);
     const value = JSON.parse(json)
-    console.log('this is what i found in the LS: ', value);
     return value;
 }
 

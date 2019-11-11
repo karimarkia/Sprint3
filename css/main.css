@@ -1,9 +1,10 @@
-@import '/css/helpers.css';
-@import '/js/apps/missEmail/css/fonts.css';
-@import '/js/apps/missEmail/css/emailApp-main.css';
-@import '/js/apps/missEmail/css/emailApp-components.css';
-@import '/js/apps/missKeep/css/notesApp-main.css';
-@import '/js/apps/missBooks/css/booksApp-main.css';
+@import 'css/helpers.css';
+@import 'js/apps/missEmail/css/fonts.css';
+@import 'js/apps/missEmail/css/emailApp-main.css';
+@import 'js/apps/missEmail/css/emailApp-components.css';
+@import 'js/apps/missKeep/css/notesApp-main.css';
+@import 'js/apps/missBooks/css/booksApp-main.css';
+
 * {
     margin: 0;
     box-sizing: border-box;

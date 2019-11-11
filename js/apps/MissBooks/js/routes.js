@@ -6,7 +6,7 @@ import myLife from './cmps/my-life.cmp.js';
 import myVision from './cmps/my-vision.cmp.js';
 import bookApp from './cmps/book-app.cmp.js';
 import addBook from './cmps/add-book.cmp.js';
-// import bookDetails from './cmps/book-details.cmp.js';
+import bookDetails from './cmps/book-details.cmp.js';
 
 const myRoutes = [{
         path: '/',
@@ -33,10 +33,10 @@ const myRoutes = [{
         path: '/addBook',
         component: addBook
     },
-    // {
-    //     path: '/book/:id',
-    //     component: bookDetails
-    // }
+    {
+        path: '/book/:id',
+        component: bookDetails
+    }
 ]
 
 const myRouter = new VueRouter({ routes: myRoutes })

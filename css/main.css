@@ -1,8 +1,9 @@
-/* @import 'helpers.css'; */
+@import 'helpers.css';
 @import '../js/apps/missEmail/css/fonts.css';
 @import '../js/apps/missEmail/css/emailApp-main.css';
 @import '../js/apps/missEmail/css/emailApp-components.css';
 @import '../js/apps/missKeep/css/notesApp-main.css';
+
 /* @import '../js/apps/missBooks/css/booksApp-main.css'; */
 
 * {
@@ -10,8 +11,7 @@
     box-sizing: border-box;
 }
 
-.wrapper {
-}
+.wrapper {}
 
 .header {
     /* background-color: #8d9db6; */
@@ -62,66 +62,4 @@ footer {
 
 img.menu-item {
     width: 80px;
-}
-
-.flex {
-    display: flex;
-}
-
-.flex-col {
-    display: flex;
-    flex-direction: column;
-}
-
-.wrap {
-    flex-wrap: wrap;
-}
-
-.spread {
-    justify-content: space-between;
-}
-
-.align-center {
-    align-items: center;
-}
-
-.justify-center {
-    justify-content: center;
-}
-
-.centered {
-    justify-content: center;
-    align-items: center;
-}
-
-.end {
-    justify-content: flex-end;
-}
-
-.right {
-    float: right;
-}
-
-.clean {
-    list-style: none;
-}
-
-.hidden {
-    display: none;
-}
-
-.visible {
-    display: block;
-}
-
-.bold {
-    font-weight: bold;
-}
-
-.underlined {
-    text-decoration: underline;
-}
-
-.center {
-    text-align: center;
 }

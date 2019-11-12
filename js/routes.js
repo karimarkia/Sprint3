@@ -13,7 +13,7 @@ import emailCompose from './apps/missEmail/cmps/email-compose.cmp.js';
 import missKeep from './apps/missKeep/cmps/keep-main.js';
 
 import missBooks from './apps/MissBooks/js/main.js';
-import bookDetails from '../apps/missBooks/js/cmps/book-details.cmp.js'
+import bookDetails from './apps/MissBooks/js/cmps/book-details.cmp.js'
 import addBook from './apps/MissBooks/js/cmps/add-book.cmp.js'
 
 

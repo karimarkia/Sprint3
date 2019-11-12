@@ -1,7 +1,6 @@
 'use strict'
 
 import home from './cmps/home.cmp.js';
-// import appHeader from './cmps/app-header.cmp.js';
 
 import missEmail from './apps/missEmail/pages/emailApp.js';
 import emailListInbox from './apps/missEmail/cmps/email-list-inbox.cmp.js';

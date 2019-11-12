@@ -11,7 +11,6 @@ import theRouter from '../routes.js'
 
 Vue.config.productionTip = false;
 
-// var options = {
 export default {
     name: 'bookApp',
     template: `
@@ -71,5 +70,3 @@ export default {
     }
 
 }
-
-// new Vue(options);

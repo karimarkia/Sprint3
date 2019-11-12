@@ -7,11 +7,9 @@ import bookFilter from './cmps/book-filter.cmp.js';
 import addBook from './cmps/add-book.cmp.js'
 import { bookService } from '../js/services/book-service.js';
 import '../../../services/event-bus-service.js'
-// import theRouter from '../routes.js'
 
 Vue.config.productionTip = false;
 
-// var options = {
 export default {
     name: 'bookApp',
     template: `
@@ -73,5 +71,3 @@ export default {
     }
 
 }
-
-// new Vue(options);

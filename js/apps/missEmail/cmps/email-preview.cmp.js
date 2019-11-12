@@ -52,16 +52,12 @@ export default {
         deleteEmail(emailId) {
             emailService.modifyEmailProperty(this.email.id, 'isDeleted')
                 .then(() => {
+                    console.log('got here!');
                     const msg = {
                         txt: `The email has been deleted or restored successfully (email ID: '${emailId}')`,
                         type: 'success'
                     }
                     eventBus.$emit('show-msg', msg);
-                    const msg2 = {
-                        txt: 'the stats have been updated!',
-                        type: 'success'
-                    }
-                    eventBus.$emit('updateStats', msg2);
                 })
         }
     },

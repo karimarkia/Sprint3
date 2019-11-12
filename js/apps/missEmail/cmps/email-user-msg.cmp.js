@@ -16,32 +16,7 @@ export default {
         }
     },
     created() {
-        eventBus.$on('emailSent', (msg) => {
-            this.msg = msg;
-            setTimeout(() => {
-                this.msg = null;
-            }, 3000)
-        })
-        eventBus.$on('newEmailDiscarded', (msg) => {
-            this.msg = msg;
-            setTimeout(() => {
-                this.msg = null;
-            }, 3000)
-        })
-        eventBus.$on('sentToNotes', (msg) => {
-            this.msg = msg;
-            setTimeout(() => {
-                this.msg = null;
-            }, 3000)
-        })
-        eventBus.$on('updateStats', (msg) => {
-            this.msg = msg;
-            setTimeout(() => {
-                this.msg = null;
-            }, 3000)
-        })
         eventBus.$on('show-msg', (msg) => {
-            console.log('UserMsg got new Msg!');
             this.msg = msg;
             setTimeout(() => {
                 this.msg = null;

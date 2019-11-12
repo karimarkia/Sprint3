@@ -44,9 +44,7 @@ export default {
                 txt: 'changes have been discarded',
                 type: 'success'
             }
-            eventBus.$emit('newEmailDiscarded', msg);
-            console.log('discarded msg has been emitted to the bus');
-
+            eventBus.$emit('show-msg', msg);
             this.$router.push('emailList')
 
         },
@@ -54,15 +52,15 @@ export default {
             emailService.sendEmail(this.newEmail)
                 .then(() => {
                     const msg = {
-                        txt: 'The email has been sent succefully',
+                        txt: `The email has been sent successfully (email ID: '${this.newEmail.id}')`,
                         type: 'success'
                     }
-                    eventBus.$emit('emailSent', msg);
-                    const msg2 = {
-                        txt: 'the stats have been updated!',
-                        type: 'success'
-                    }
-                    eventBus.$emit('updateStats', msg2);
+                    eventBus.$emit('show-msg', msg);
+                    // const msg2 = {    // if this part is uncommented, it is only the second msg (msg2) that is displayed in the status bar !
+                    //     txt: 'the stats have been updated!',
+                    //     type: 'success'
+                    // }
+                    // eventBus.$emit('updateStats', msg2);
 
                     this.newEmail = emailService.getEmptyEmail()
                         .then(email => {

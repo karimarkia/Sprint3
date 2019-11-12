@@ -53,11 +53,6 @@ export default {
                         type: 'success'
                     }
                     eventBus.$emit('show-msg', msg);
-                    const msg2 = {
-                        txt: 'the stats have been updated!',
-                        type: 'success'
-                    }
-                    eventBus.$emit('updateStats', msg2);
                     this.$router.push('emailList');
                 })
         },
@@ -69,11 +64,6 @@ export default {
                         type: 'success'
                     }
                     eventBus.$emit('show-msg', msg);
-                    const msg2 = {
-                        txt: 'the stats have been updated!',
-                        type: 'success'
-                    }
-                    eventBus.$emit('updateStats', msg2);
                 })
         },
         sendToNotes(email) {
@@ -90,20 +80,6 @@ export default {
         closeDetails() {
             this.$router.push('emailList')
             this.$emit('closeDetails')
-        },
-        getAdjacentEmail(direction) {
-            let emailId = null;
-            if (direction === 'prev') {
-                emailId = this.prevEmailId
-            }
-            if (direction === 'next') {
-                emailId = this.nextEmailId
-            }
-            emailService.getEmailById(emailId)
-                .then(email => {
-                    console.log('emailDetails is switching to this email: ', email)
-                    this.$emit('switchEmailDetails', email)
-                })
         }
     },
     computed: {
@@ -122,11 +98,6 @@ export default {
         emailService.modifyEmailProperty(emailId, 'isRead')
             .then(email => {
                 this.currEmail = email;
-                const msg = {
-                    txt: 'the stats have been updated!',
-                    type: 'success'
-                }
-                eventBus.$emit('updateStats', msg);
                 this.loadEmail();
             })
     },

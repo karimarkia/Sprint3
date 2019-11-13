@@ -21,12 +21,12 @@ export default {
                 <div class="flex spread">
                     <div class="flex end">
                         <img class="compose-commands" :src="starType" alt="" /> 
-                        <img class="compose-commands" @click="markAsUnread(currEmail.id)" src="/img/unread.png" alt="" title="Mark As Unread"/> 
-                        <img class="compose-commands" @click="sendToNotes(currEmail)" src="/img/keepApp.png" title="Send To Notes" />
+                        <img class="compose-commands" @click="markAsUnread(currEmail.id)" src="./img/unread.png" alt="" title="Mark As Unread"/> 
+                        <img class="compose-commands" @click="sendToNotes(currEmail)" src="./img/keepApp.png" title="Send To Notes" />
                     </div>
                     <div class="flex end">
                         <img class="compose-commands" @click="deleteEmail(currEmail.id)" :src="trashType" alt="" />
-                        <img class="compose-commands" @click="closeDetails" src="/img/back.png" alt="" />
+                        <img class="compose-commands" @click="closeDetails" src="./img/back.png" alt="" />
                     </div>
                 </div>
             </section>
@@ -84,12 +84,12 @@ export default {
     },
     computed: {
         trashType() {
-            if (this.currEmail.isDeleted === false) return '/img/delete.png';
-            if (this.currEmail.isDeleted === true) return '/img/undelete.png';
+            if (this.currEmail.isDeleted === false) return './img/delete.png';
+            if (this.currEmail.isDeleted === true) return './img/undelete.png';
         },
         starType() {
-            if (this.currEmail.isStarred === false) return '/img/notstar.png';
-            if (this.currEmail.isStarred === true) return '/img/star.png';
+            if (this.currEmail.isStarred === false) return './img/notstar.png';
+            if (this.currEmail.isStarred === true) return './img/star.png';
         }
     },
     components: {},

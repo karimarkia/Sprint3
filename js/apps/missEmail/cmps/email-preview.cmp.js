@@ -25,7 +25,7 @@ export default {
                                 <div class="large-subject underlined">{{email.subject}}</div>
                                 <div class="flex">
                                     <img class="preview-commands" @click="deleteEmail(email.id)" :src="trashType" alt="" />
-                                    <router-link :to="emailURL"><img class="preview-commands" src="/img/preview-details.png" alt="" /></router-link>
+                                    <router-link :to="emailURL"><img class="preview-commands" src="./img/preview-details.png" alt="" /></router-link>
                                 </div>
                             </div>   
                             <div>From: {{email.from}}</div>
@@ -73,16 +73,16 @@ export default {
             return emailBody
         },
         trashType() {
-            if (this.email.isDeleted === false) return '/img/preview-delete.png';
-            if (this.email.isDeleted === true) return '/img/preview-undelete.png';
+            if (this.email.isDeleted === false) return './img/preview-delete.png';
+            if (this.email.isDeleted === true) return './img/preview-undelete.png';
         },
         starType() {
-            if (this.email.isStarred === false) return '/img/notstar.png';
-            if (this.email.isStarred === true) return '/img/star.png';
+            if (this.email.isStarred === false) return './img/notstar.png';
+            if (this.email.isStarred === true) return './img/star.png';
         },
         readType() {
-            if (this.email.isRead === false) return '/img/unread.png';
-            if (this.email.isRead === true) return '/img/read.png';
+            if (this.email.isRead === false) return './img/unread.png';
+            if (this.email.isRead === true) return './img/read.png';
         }
     },
 }

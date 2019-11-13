@@ -19,8 +19,8 @@ export default {
                     <textarea ref="inputEmailBody" placeholder="what do you have to say?" v-model="newEmail.body" required></textarea>
                 </div>
                 <div class="flex spread">
-                    <img class="compose-commands" @click="discardChanges" src="/img/delete.png" alt="" />
-                    <input type="image" class="compose-commands" src="/img/send.png" alt="Submit">
+                    <img class="compose-commands" @click="discardChanges" src="./img/delete.png" alt="" />
+                    <input type="image" class="compose-commands" src="./img/send.png" alt="Submit">
                 </div>
                 </form>
                 <div class="flex end">

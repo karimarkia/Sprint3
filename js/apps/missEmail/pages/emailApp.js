@@ -19,7 +19,7 @@ export default {
             <div class="body-container flex-col">
                 <div class="email-app-body flex">
                     <div class="email-side-nav flex-col">
-                        <router-link @click.native="toggleSearch" @doneComposing="toggleSearch" to="/missEmail/emailCompose"><img class="new-email-img" src="/img/newemail.png" alt="" /></router-link>
+                        <router-link @click.native="toggleSearch" @doneComposing="toggleSearch" to="/missEmail/emailCompose"><img class="new-email-img" src="./img/newemail.png" alt="" /></router-link>
                         <emailNav></emailNav> 
                     </div>
                     <div class="email-main flex-col">
